@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Site Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <h1 class="logo"><a href="index.html">Mon Logo</a></h1>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
+                    <li><a class="nav-link scrollto" href="#about">À propos</a></li>
+                    <li><a class="nav-link scrollto" href="#features">Caractéristiques</a></li>
+                    <li><a class="nav-link scrollto" href="#gallery">Galerie</a></li>
+                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-container">
+            <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" style="background-image: url('imagesMg/M10.jpeg');">
+                        <div class="carousel-container">
+                            <div class="container">
+                                <h2 class="animate__animated animate__fadeInDown">Bienvenue sur Mon Site Web</h2>
+                                <p class="animate__animated animate__fadeInUp">Description captivante de votre site web</p>
+                                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">En savoir plus</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres éléments carousel-item ici si nécessaire -->
+
+
+
+                    <div class="hero-container">
+                        <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" style="background-image: url('imagesMg/M1.jpeg');">
+                                    <div class="carousel-container">
+                                        <div class="container">
+                                            <h2 class="animate__animated animate__fadeInDown">Bienvenue sur Mon Site Web</h2>
+                                            <p class="animate__animated animate__fadeInUp">Description captivante de votre site web</p>
+                                            <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">En savoir plus</a>
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main id="main">
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>À propos de nous</h2>
+                    <p>Description de votre entreprise ou de votre projet</p>
+                </div>
+                <div class="row content">
+                    <div class="col-lg-6">
+                        <p>Texte descriptif sur votre entreprise ou projet</p>
+                        <ul>
+                            <li><i class="bi bi-check-circle"></i> Point important 1</li>
+                            <li><i class="bi bi-check-circle"></i> Point important 2</li>
+                            <li><i class="bi bi-check-circle"></i> Point important 3</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 pt-4 pt-lg-0">
+                        <p>Plus de détails sur votre entreprise ou projet</p>
+                        <a href="#" class="btn-learn-more">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features section-bg">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Nos Caractéristiques</h2>
+                    <p>Découvrez ce qui nous rend uniques</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="icon-box">
+                            <i class="bi bi-gem" style="color: #e43f6f;"></i>
+                            <h3><a href="">Caractéristique 1</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                        <div class="icon-box">
+                            <i class="bi bi-heart" style="color: #e43f6f;"></i>
+                            <h3><a href="">Caractéristique 2</a></h3>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres boîtes de caractéristiques ici -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Notre Galerie</h2>
+                    <p>Découvrez nos meilleures images</p>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-3 col-md-4">
+                        <div class="gallery-item">
+                            <a href="gallery-1.jpg" class="gallery-lightbox">
+                                <img src="gallery-1.jpg" alt="" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Ajoutez d'autres éléments de galerie ici -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contactez-nous</h2>
+                    <p>N'hésitez pas à nous contacter pour toute question</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 d-flex align-items-stretch">
+                        <div class="info">
+                            <div class="address">
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>Adresse:</h4>
+                                <p>Votre adresse ici</p>
+                            </div>
+                            <div class="email">
+                                <i class="bi bi-envelope"></i>
+                                <h4>Email:</h4>
+                                <p>info@example.com</p>
+                            </div>
+                            <div class="phone">
+                                <i class="bi bi-phone"></i>
+                                <h4>Téléphone:</h4>
+                                <p>+1 5589 55488 55s</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Votre Nom</label>
+                                    <input type="text" name="name" class="form-control" id="name" required>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">Votre Email</label>
+                                    <input type="email" class="form-control" name="email" id="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet</label>
+                                <input type="text" class="form-control" name="subject" id="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea class="form-control" name="message" rows="10" required></textarea>
+                            </div>
+                            <div class="my-3">
+                                <div class="loading">Chargement</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Votre message a été envoyé. Merci!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Envoyer le Message</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <h3>Mon Site Web</h3>
+            <p>Une brève description de votre site ou de votre entreprise</p>
+            <div class="social-links">
+                <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <div class="copyright">
+                &copy; Copyright <strong><span>Mon Site Web</span></strong>. Tous droits réservés
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+</body>
+</html>

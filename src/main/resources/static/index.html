@@ -1,0 +1,2853 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Madeleine Garden</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+<style>
+
+
+.home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.home .head_container {
+  position: relative;
+  height: 100%;
+}
+
+.home .video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.home .video-container {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
+}
+
+.home .video-container video,
+.home .video-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+.home .content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.home .box {
+  z-index: 1;
+}
+
+.home .image_item {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  bottom: 20px; /* Ajustez cette valeur selon vos besoins */
+  padding-right: 20px; /* Ajoute un peu d'espace à droite */
+}
+
+.home .image_item img {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Ajustez ces valeurs selon vos besoins */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+
+
+
+
+
+
+
+.text button {
+    transition: background-color 0.3s ease;
+  }
+
+  .text button:hover {
+    background-color: #006400;
+    color: white;
+  }
+
+  .header {
+    transition: background-color 0.3s ease;
+  }
+
+  .header:hover {
+    background-color: rgba(0, 100, 0, 0.7);
+  }
+
+  .header:hover .nav-link {
+    color: white !important;
+  }
+
+  .text h1 {
+    color: #00FF00;
+    font-weight: bold;
+    text-shadow: 0 0 10px #00FF00;
+    transition: all 0.3s ease;
+  }
+
+  .text p {
+    font-weight: bold;
+    transition: all 0.3s ease;
+  }
+
+  .header {
+    transition: background-color 0.3s ease;
+  }
+
+  .image_item img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .image_item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .text h1.animate {
+    animation: pulse 1s infinite;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Positionnement du logo */
+.logo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+/* Réduire davantage la taille du logo */
+.logo img {
+  max-width: 40px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 30px;
+  }
+}
+
+/* Ajustement du conteneur de navigation pour laisser de l'espace au logo */
+.container nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 60px; /* Espace pour le logo */
+}
+
+/* Styles pour le menu de navigation */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  margin-left: 20px;
+}
+
+/* Garder le reste des styles inchangés */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.header.image-bg {
+  background-color:  #4CAF50;
+}
+
+.text p {
+  transition: background-color 0.3s ease;
+}
+
+.image-bg .text p {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white !important;
+  font-weight: bold !important;
+  padding: 10px;
+}
+.header.green-bg {
+  background-color:  #4CAF50;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.8rem;
+    }
+
+    footer .social-icons a {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+/* Footer styles */
+footer {
+    background-color: white;
+    color: #34495e;
+    padding: 3rem 0 1rem;
+    margin-top: 3rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    margin-bottom: 2rem;
+    min-width: 250px;
+    padding: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color:  #4CAF50;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50px;
+    height: 2px;
+    background-color:  #4CAF50;
+}
+
+.footer-section p, .footer-section ul li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #34495e;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color:  #4CAF50;
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: #34495e;
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color:  #4CAF50;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #34495e;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #34495e;
+}
+
+/* Animation for footer sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-section {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.footer-section:nth-child(1) { animation-delay: 0.1s; }
+.footer-section:nth-child(2) { animation-delay: 0.2s; }
+.footer-section:nth-child(3) { animation-delay: 0.3s; }
+.footer-section:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive design for footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+}
+
+
+
+
+
+
+
+.footer-section .phone-numbers {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-section .phone-numbers span {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.footer-section .number-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section .number-list a {
+    color: #34495e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    line-height: 1.5;
+}
+
+.footer-section .number-list a:hover {
+    color:  #4CAF50;
+}
+
+p a {
+    color: #34495e;
+    text-decoration: none;
+}
+
+p a:hover {
+    color: #34495e; /* Légère variation de couleur au survol */
+}
+
+
+
+
+
+/* Rooms & Suites Section Styles */
+.room {
+  padding: 40px 0;
+}
+
+.room .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.room .heading_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.room .heading h5 {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.room .heading h2 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.room .button .btn1 {
+  background-color: #006400;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.room .button .btn1:hover {
+  background-color: #004d00;
+}
+
+.room .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.room .box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 80px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.room .box:hover {
+  transform: translateY(-5px);
+}
+
+.room .box .img {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 150%; /* 4:3 aspect ratio */
+  overflow: hidden;
+}
+
+.room .box .img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.room .box:hover .img img {
+  filter: grayscale(100%) brightness(50%);
+  transform: scale(1.05);
+}
+
+.room .box::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.room .box:hover::after {
+  opacity: 1;
+}
+
+.room .box .text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: transform 0.3s ease;
+}
+
+.room .box:hover .text {
+  transform: translateY(0);
+}
+
+.room .box .text h3 {
+  margin: 0 0 10px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.room .box .text p {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.room .box .text p span {
+  color: #006400;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .room .heading_top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .room .button {
+    margin-top: 15px;
+  }
+
+  .room .content {
+    grid-template-columns: 1fr;
+  }
+}
+/* Styles pour l'agrandissement des images */
+.enlarged-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlarged-overlay.active {
+  display: flex;
+}
+
+.enlarged-image {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.video-section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .video-section .video-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .video-section .content-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+    }
+    .video-section .counter-container {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        max-width: 1200px;
+    }
+    .video-section .counter-item {
+        text-align: center;
+    }
+    .video-section .counter-number {
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #00FF00;
+    }
+    .video-section .counter-label {
+        font-size: 1.2rem;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+    .events-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .event-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3rem;
+            overflow: hidden;
+        }
+        .event-container:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        .event-image-container {
+            flex: 1;
+            margin-right: 2rem;
+            position: relative;
+            overflow: hidden;
+            height: 300px;
+        }
+        .event-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .event-image.active {
+            opacity: 1;
+        }
+        .event-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .event-content {
+            flex: 1;
+        }
+        .event-title {
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+        .event-description {
+            margin-bottom: 1rem;
+        }
+        .read-more-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .read-more-btn:hover {
+            background-color: #45a049;
+        }
+        .hidden-content {
+            display: none;
+        }
+        .event-container.left-image {
+            flex-direction: row;
+        }
+        .event-container.left-image .event-image-container {
+            margin-right: 2rem;
+            margin-left: 0;
+        }
+
+        /* Updated animations */
+        .event-container .event-image-container,
+        .event-container .event-content {
+            transition: transform 1s ease;
+        }
+        
+        .event-container.animate-graduation .event-image-container,
+        .event-container.animate-birthday .event-content {
+            transform: translateX(-100%);
+        }
+        .event-container.animate-graduation .event-content,
+        .event-container.animate-birthday .event-image-container,
+        .event-container.animate-wedding .event-image-container {
+            transform: translateX(100%);
+        }
+        .event-container.animate-wedding .event-content {
+            transform: translateX(-100%);
+        }
+
+        .event-container.animated .event-image-container,
+        .event-container.animated .event-content {
+            transform: translateX(0);
+        }
+
+
+
+
+
+
+
+/* Ajoutez ces styles à votre CSS existant */
+
+.event-container .event-image-container,
+.event-container .event-content {
+    transition: transform 1s ease;
+}
+
+.event-container:not(.animated) .event-image-container {
+    transform: translateX(100%);
+}
+
+.event-container:not(.animated) .event-content {
+    transform: translateX(-100%);
+}
+
+.event-container.animated .event-image-container,
+.event-container.animated .event-content {
+    transform: translateX(0);
+}
+
+.event-container:nth-child(even):not(.animated) .event-image-container {
+    transform: translateX(-100%);
+}
+
+.event-container:nth-child(even):not(.animated) .event-content {
+    transform: translateX(100%);
+}
+
+#birthday-hall .event-container:not(.animated) .event-image-container {
+    transform: translateX(-100%);
+}
+
+#birthday-hall .event-container:not(.animated) .event-content {
+    transform: translateX(100%);
+}
+
+.read-less-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.read-less-btn:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.facilities {
+  padding: 4rem 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.facilities h2 {
+  text-align: center;
+  color: #00FF00;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.facilities-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.facility-item {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: calc(25% - 2rem);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.facility-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.facility-item i {
+  font-size: 2.5rem;
+  color: #00FF00;
+  margin-bottom: 1rem;
+}
+
+.facility-item h3 {
+  color: #34495e;
+  margin-bottom: 0.5rem;
+}
+
+.facility-item p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.facility-item.animate-left {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.facility-item.animate-right {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+@media (max-width: 1024px) {
+  .facility-item {
+    width: calc(33.33% - 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .facility-item {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .facility-item {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.madeleine-safari {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.madeleine-safari .title {
+  text-align: center;
+  color: #00FF00;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.madeleine-safari .title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.madeleine-safari .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.madeleine-safari .image-container {
+  flex: 0 0 35%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 1s ease, transform 1s ease;
+  border: 2px solid #00FF00;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.madeleine-safari .image-container.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.madeleine-safari .madeleine-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.madeleine-safari .text-content {
+  flex: 0 0 60%;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.madeleine-safari .text-content.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.madeleine-safari p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.madeleine-safari .read-more {
+  background-color: #00FF00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.madeleine-safari .read-more:hover {
+  background-color: #00CC00;
+}
+
+@media (max-width: 768px) {
+  .madeleine-safari .content-wrapper {
+    flex-direction: column;
+  }
+
+  .madeleine-safari .image-container,
+  .madeleine-safari .text-content {
+    flex: 0 0 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.madeleine-family {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.madeleine-family .title {
+  text-align: center;
+  color: #00FF00;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 4s ease, transform 4s ease;
+}
+
+.madeleine-family .title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.madeleine-family .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.madeleine-family .text-content {
+  flex: 0 0 60%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 6s ease, transform 6s ease;
+}
+
+.madeleine-family .text-content.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.madeleine-family p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.madeleine-family .image-container {
+  flex: 0 0 35%;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 1s ease, transform 1s ease;
+  border: 2px solid #00FF00;
+  border-radius: 8px;
+  padding: 5px;
+  position: relative;
+  height: 450px;
+}
+
+.madeleine-family .image-container.animate {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.madeleine-family .family-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.madeleine-family .family-image.active {
+  opacity: 1;
+}
+
+.madeleine-family .read-more {
+  background-color: #00FF00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.madeleine-family .read-more:hover {
+  background-color: #00CC00;
+}
+
+.madeleine-family .hidden-content {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .madeleine-family .content-wrapper {
+    flex-direction: column;
+  }
+
+  .madeleine-family .text-content,
+  .madeleine-family .image-container {
+    flex: 0 0 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.victor-section {
+  padding: 2rem 0;
+  background-color: #f9f9f9;
+  overflow: hidden;
+}
+
+.victor-section .title {
+  text-align: center;
+  color: #00FF00;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 4s ease, transform 4s ease;
+}
+
+.victor-section .title.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.victor-section .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-direction: row; /* Keep the default order */
+}
+
+.victor-section .text-content {
+  flex: 0 0 60%;
+  opacity: 0;
+  transform: translateX(100%); /* Start from right */
+  transition: opacity 4s ease, transform 4s ease;
+}
+
+.victor-section .text-content.animate {
+  opacity: 1;
+  transform: translateX(0); /* Move to the left */
+}
+
+.victor-section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.victor-section .image-container {
+  flex: 0 0 35%;
+  opacity: 0;
+  transform: translateX(-100%); /* Start from left */
+  transition: opacity 4s ease, transform 4s ease;
+  border: 4px solid #00FF00; /* Green frame */
+  border-radius: 8px;
+  padding: 5px;
+  position: relative;
+  height: 500px;
+  overflow: hidden; /* Ensure images don't overflow the container */
+}
+
+.victor-section .image-container.animate {
+  opacity: 1;
+  transform: translateX(0); /* Move to the right */
+}
+
+.victor-section .victor-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 4s ease;
+}
+
+.victor-section .victor-image.active {
+  opacity: 1;
+}
+
+.victor-section .read-more {
+  background-color: #00FF00;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.victor-section .read-more:hover {
+  background-color: #00CC00;
+}
+
+.victor-section .hidden-content {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .victor-section .content-wrapper {
+    flex-direction: column;
+  }
+
+  .victor-section .text-content,
+  .victor-section .image-container {
+    flex: 0 0 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+
+
+
+
+
+
+.dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            color: green;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #444;
+            }
+
+            .dropdown-content a {
+                color: white;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        }
+
+
+
+
+
+
+
+    /* Style for the globe icon and language dropdown */
+.language-toggle {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.globe-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Language dropdown styling */
+.language-dropdown {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 100px;
+  right: 0;
+  top: 30px;
+  z-index: 1;
+}
+
+.language-toggle:hover .language-dropdown {
+  display: block;
+}
+
+.language-dropdown a {
+  color: black;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.language-dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+
+</style>
+
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+</head>
+
+
+
+
+
+<body>
+<!-- Header avec data-translate corrigés -->
+<header class="header" id="navigation-menu">
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">
+                <img src="imagesMg/logo/logo.jpeg" alt="">
+            </a>
+
+            <ul class="nav-menu">
+                <li> <a href="#home" class="nav-link" data-translate="nav-home">Home</a> </li>
+                <li> <a href="#about" class="nav-link" data-translate="nav-about">About</a> </li>
+                <li> <a href="#room" class="nav-link" data-translate="nav-rooms">Rooms</a> </li>
+                <li> <a href="#services" class="nav-link" data-translate="nav-services">Services</a> </li>
+                <li> <a href="#events" class="nav-link" data-translate="nav-events">Events</a> </li>
+                <li> <a href="gallery.html" class="nav-link" data-translate="nav-gallery">Gallery</a> </li>
+
+                <li class="dropdown">
+                    <a href="famille.html" class="nav-link" data-translate="nav-family">Family</a>
+                    <div class="dropdown-content">
+                        <a href="#madeleine-safari" data-translate="dropdown-madeleine">Who's Madeleine Safari?</a>
+                        <a href="famille.html#Dieudonne" data-translate="dropdown-dieudonne">Dieudonne Unencan</a>
+                        <a href="famille.html#binen" data-translate="dropdown-binen">Binen Gladys</a>
+                        <a href="#madeleine-family" data-translate="dropdown-madeleine-family">Madeleine's Family</a>
+                        <a href="#victor-section" data-translate="dropdown-victor">Victor Jacker</a>
+                    </div>
+                </li>
+
+                <li> <a href="#contact" class="nav-link" data-translate="nav-update">Update</a> </li>
+                <li> <a href="#contact" class="nav-link" data-translate="nav-contact">Contact</a> </li>
+            </ul>
+
+            <!-- Language Toggle Icon -->
+            <div class="language-toggle">
+                <img src="imagesMg/globe.webp" alt="Language" class="globe-icon" />
+                <div class="language-dropdown">
+                    <button onclick="setLanguage('en')" class="lang-btn">English</button>
+                    <button onclick="setLanguage('fr')" class="lang-btn">Français</button>
+                </div>
+            </div>
+
+            <div class="hambuger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+
+
+  <script>
+    const hambuger = document.querySelector('.hambuger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hambuger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+      hambuger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll('.nav-link');
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+      hambuger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+
+
+
+
+
+<section class="home" id="home">
+    <div class="head_container">
+        <div class="video-container">
+            <video src="videos/v1.mp4" class="slide" autoplay loop muted></video>
+        </div>
+        <div class="content-overlay">
+            <div class="box">
+                <div class="text">
+                    <h1 data-translate="home-title">Madeleine Garden</h1>
+                    <p data-translate="home-quote">Whatever you do, do it with all your heart, as for the Lord and not for men.</p>
+                    <button id="moreInfoBtn" data-translate="more-info">MORE INFO</button>
+                </div>
+            </div>
+            <div class="image_item">
+                <img src="imagesMg/GuestHouse/M2.jpeg" alt="" class="slide active" onclick="img('videos/v2.mp4')" data-translate="image1">
+                <img src="imagesMg/GuestHouse/M1.jpeg" alt="" class="slide" onclick="img('imagesMg/GuestHouse/M1.jpeg')" data-translate="image2">
+                <img src="imagesMg/M13.jpeg" alt="" class="slide" onclick="img('videos/v1.mp4')" data-translate="image3">
+                <img src="imagesMg/M27.jpeg" alt="" class="slide" onclick="img('imagesMg/M27.jpeg')" data-translate="image4">
+                <img src="imagesMg/M16.jpeg" alt="" class="slide" onclick="img('videos/v3.mp4')" data-translate="image5">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+  <script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('.header');
+    const headerHeight = header.offsetHeight;
+    const homeSection = document.querySelector('#home');
+
+    function img(anything) {
+        const container = document.querySelector('.video-container');
+        const current = container.firstElementChild;
+        const navLinks = document.querySelectorAll('.nav-link');
+        const madelineGarden = document.querySelector('h1');
+        const description = document.querySelector('.text p');
+
+        if (anything.endsWith('.mp4')) {
+            // Si c'est une vidéo
+            if (current.tagName !== 'VIDEO') {
+                const video = document.createElement('video');
+                video.src = anything;
+                video.className = 'slide';
+                video.autoplay = true;
+                video.loop = true;
+                video.muted = true;
+                container.replaceChild(video, current);
+            } else {
+                current.src = anything;
+            }
+            header.classList.remove('image-bg');
+            navLinks.forEach(link => link.style.color = 'white');
+            madelineGarden.style.color = 'white';
+            description.style.backgroundColor = 'transparent';
+            description.style.color = 'white';
+            description.style.fontWeight = 'normal';
+            
+            // Reset round style for video
+            resetRoundStyle(description);
+            
+            window.addEventListener('scroll', checkScroll);
+        } else {
+            // Si c'est une image
+            if (current.tagName !== 'IMG') {
+                const img = document.createElement('img');
+                img.src = anything;
+                img.className = 'slide';
+                container.replaceChild(img, current);
+            } else {
+                current.src = anything;
+            }
+            header.classList.add('image-bg');
+            navLinks.forEach(link => link.style.color = 'white');
+            madelineGarden.style.color = '#006400';
+            description.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            description.style.color = 'white';
+            description.style.fontWeight = 'bold';
+            
+            // Apply round style for image
+            applyRoundStyle(description);
+            
+            window.removeEventListener('scroll', checkScroll);
+        }
+    }
+
+    function applyRoundStyle(element) {
+        element.style.borderRadius = '50%';
+        element.style.width = '200px';
+        element.style.height = '200px';
+        element.style.display = 'flex';
+        element.style.alignItems = 'center';
+        element.style.justifyContent = 'center';
+        element.style.textAlign = 'center';
+        element.style.padding = '20px';
+        element.style.margin = '20px auto';
+        element.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        element.style.overflow = 'hidden';
+    }
+
+    function resetRoundStyle(element) {
+        element.style.borderRadius = '';
+        element.style.width = '';
+        element.style.height = '';
+        element.style.display = '';
+        element.style.alignItems = '';
+        element.style.justifyContent = '';
+        element.style.textAlign = '';
+        element.style.padding = '';
+        element.style.margin = '';
+        element.style.boxShadow = '';
+        element.style.overflow = '';
+    }
+
+    function checkScroll() {
+        const homeSectionBottom = homeSection.offsetTop + homeSection.offsetHeight;
+
+        if (window.pageYOffset > homeSectionBottom) {
+            header.classList.add('green-bg');
+            header.style.backgroundColor = 'green';
+            header.style.position = 'fixed';
+            header.style.top = '0';
+        } else {
+            header.classList.remove('green-bg');
+            if (header.classList.contains('image-bg')) {
+                header.style.backgroundColor = 'transparent';
+            }
+            header.style.position = 'absolute';
+        }
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+
+    // Expose img function to global scope if needed
+    window.img = img;
+});
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+<section class="book">
+    <div class="container flex">
+        <div class="input grid">
+            <div class="box">
+                <label data-translate="check-in-label">Check-in:</label>
+                <input type="date" placeholder="Check-in-Date">
+            </div>
+            <div class="box">
+                <label data-translate="check-out-label">Check-out:</label>
+                <input type="date" placeholder="Check-out-Date">
+            </div>
+            <div class="box">
+                <label data-translate="adults-label">Adults:</label> <br>
+                <input type="number" placeholder="0">
+            </div>
+            <div class="box">
+                <label data-translate="children-label">Children:</label> <br>
+                <input type="number" placeholder="0">
+            </div>
+        </div>
+        <div class="search">
+            <input type="submit" value="SEARCH" data-translate="search-button">
+        </div>
+    </div>
+</section>
+
+<section class="about top" id="about">
+    <div class="container flex">
+        <div class="left">
+            <div class="img">
+                <img src="imagesMg/M95.jpeg" alt="" class="image1" data-translate="about-image1">
+                <img src="imagesMg/M94.jpeg" alt="" class="image2" data-translate="about-image2">
+            </div>
+        </div>
+        <div class="right">
+            <div class="heading">
+                <h5 data-translate="comfort-heading">RAISING COMFORT TO THE HIGHEST LEVEL</h5>
+                <h2 data-translate="welcome-heading">Welcome to Madeleine Garden</h2>
+                <p data-translate="about-text-1">Where comfort and inspiration converge in our collection of four charming guestrooms. Nestled in the serene surroundings of Kinyinya, these rooms offer the perfect retreat before and after your special events. Whether you're here for a wedding, reunion, or a quiet getaway, our accommodations provide a rejuvenating space to relax and unwind.</p>
+                <p data-translate="about-text-2">Enjoy the tranquil ambiance of our venue, complete with all the amenities needed for a peaceful stay. At Madeleine Garden, we ensure your experience is as memorable and refreshing as the events you celebrate.</p>
+                <button class="btn1" data-translate="facilities-button">FACILITIES</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+      
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const moreInfoBtn = document.getElementById('moreInfoBtn');
+            const facilitiesBtn = document.querySelector('.btn1');
+            const madSection = document.getElementById('mad');
+            const facilitiesSection = document.getElementById('facilities');
+    
+            moreInfoBtn.addEventListener('click', function() {
+                madSection.scrollIntoView({ behavior: 'smooth' });
+            });
+    
+            facilitiesBtn.addEventListener('click', function() {
+                facilitiesSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        </script>
+
+
+
+
+
+<section class="wrapper top" id="mad">
+    <video autoplay muted loop>
+        <source src="videos/v2.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="text">
+        <h2 data-translate="guest-house-title">Madeleine Garden Guest House</h2>
+        <p data-translate="guest-house-description">Madeleine Garden Guest House is a comfortable and elegant accommodation space designed to offer a relaxing experience before and after special events. It features four well-equipped rooms ensuring privacy and comfort, ideal for event hosts, special guests, or families. Located in a peaceful setting in Kinyinya, the Guest House is the perfect place to relax and recharge, providing a welcoming environment for all visitors to Madeleine Garden.</p>
+    </div>
+    <div class="content">
+        <div class="box" data-translate="wifi">
+            <i class="fas fa-wifi"></i>
+            <span data-translate="wifi-label">Wi-Fi</span>
+        </div>
+        <div class="box" data-translate="dining-areas">
+            <i class="fas fa-utensils"></i>
+            <span data-translate="dining-label">Dining Areas</span>
+        </div>
+        <div class="box" data-translate="tv-playstation">
+            <i class="fas fa-tv"></i>
+            <span data-translate="tv-label">TV & PlayStation</span>
+        </div>
+        <div class="box" data-translate="parking">
+            <i class="fas fa-car"></i>
+            <span data-translate="parking-label">Parking</span>
+        </div>
+        <div class="box" data-translate="outdoor-spaces">
+            <i class="fas fa-tree"></i>
+            <span data-translate="outdoor-label">Outdoor Spaces</span>
+        </div>
+        <div class="box" data-translate="community-room">
+            <i class="fas fa-couch"></i>
+            <span data-translate="community-label">Community Room</span>
+        </div>
+        <div class="box" data-translate="cooking-spaces">
+            <i class="fas fa-utensils"></i>
+            <span data-translate="cooking-label">Cooking Spaces</span>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const viewAllRoomsBtn = document.getElementById('viewAllRooms');
+          viewAllRoomsBtn.addEventListener('click', function() {
+              window.location.href = 'gallery.html?category=rooms';
+          });
+      });
+      </script>
+
+
+
+
+
+<section class="room top" id="room">
+    <div class="container">
+        <div class="heading_top flex1">
+            <div class="heading">
+                <h5 data-translate="comfort-heading">RAISING COMFORT TO THE HIGHEST LEVEL</h5>
+                <h2 data-translate="rooms-title">Rooms & Suites</h2>
+            </div>
+            <div class="button">
+                <button class="btn1" id="viewAllRooms" onclick="window.location.href='gallery.html?category=rooms'" data-translate="view-all-rooms">VIEW ALL</button>
+            </div>
+        </div>
+
+        <div class="content grid">
+            <div class="box" data-translate="room-1">
+                <div class="img">
+                    <img src="imagesMg/Rooms/R1.jpeg" alt="">
+                </div>
+                <div class="text">
+                    <h3 data-translate="room-type-1">Superior Soble Rooms</h3>
+                    <p data-translate="room-price-1"> <span>$</span>129 <span data-translate="per-night">/per night</span> </p>
+                </div>
+            </div>
+            <div class="box" data-translate="room-2">
+                <div class="img">
+                    <img src="imagesMg/Rooms/R14.jpeg" alt="">
+                </div>
+                <div class="text">
+                    <h3 data-translate="room-type-2">Superior Soble Rooms</h3>
+                    <p data-translate="room-price-2"> <span>$</span>129 <span data-translate="per-night">/per night</span> </p>
+                </div>
+            </div>
+
+            <div class="box" data-translate="room-3">
+                <div class="img">
+                    <img src="imagesMg/Rooms/r27.jpeg" alt="">
+                </div>
+                <div class="text">
+                    <h3 data-translate="room-type-3">Superior Soble Rooms</h3>
+                    <p data-translate="room-price-3"> <span>$</span>129 <span data-translate="per-night">/per night</span> </p>
+                </div>
+            </div>
+
+            <div class="box" data-translate="room-4">
+                <div class="img">
+                    <img src="imagesMg/Rooms/R33.jpeg" alt="">
+                </div>
+                <div class="text">
+                    <h3 data-translate="room-type-4">Superior Soble Rooms</h3>
+                    <p data-translate="room-price-4"> <span>$</span>129 <span data-translate="per-night">/per night</span> </p>
+                </div>
+            </div>
+
+            <div class="box" data-translate="room-5">
+                <div class="img">
+                    <img src="imagesMg/Rooms/R13.jpeg" alt="">
+                </div>
+                <div class="text">
+                    <h3 data-translate="room-type-5">Superior Soble Rooms</h3>
+                    <p data-translate="room-price-5"> <span>$</span>129 <span data-translate="per-night">/per night</span> </p>
+                </div>
+            </div>
+
+            <div class="box" data-translate="room-6">
+                <div class="img">
+                    <img src="imagesMg/Rooms/R18.jpeg" alt="">
+                </div>
+                <div class="text">
+                    <h3 data-translate="room-type-6">Superior Soble Rooms</h3>
+                    <p data-translate="room-price-6"> <span>$</span>129 <span data-translate="per-night">/per night</span> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const boxes = document.querySelectorAll('.box');
+  let enlargedOverlay = document.createElement('div');
+  enlargedOverlay.className = 'enlarged-overlay';
+  document.body.appendChild(enlargedOverlay);
+
+  boxes.forEach(box => {
+    box.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const img = box.querySelector('img');
+      const enlargedImg = document.createElement('img');
+      enlargedImg.src = img.src;
+      enlargedImg.className = 'enlarged-image';
+      
+      const closeBtn = document.createElement('div');
+      closeBtn.innerHTML = '&times;';
+      closeBtn.className = 'close-btn';
+
+      enlargedOverlay.innerHTML = '';
+      enlargedOverlay.appendChild(enlargedImg);
+      enlargedOverlay.appendChild(closeBtn);
+      enlargedOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      closeBtn.addEventListener('click', closeEnlargedImage);
+    });
+
+    // Ajout de l'effet noir et blanc au survol
+    const img = box.querySelector('img');
+    box.addEventListener('mouseenter', () => {
+      img.style.filter = 'grayscale(100%)';
+    });
+    box.addEventListener('mouseleave', () => {
+      img.style.filter = 'grayscale(0%)';
+    });
+  });
+
+  function closeEnlargedImage() {
+    enlargedOverlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  enlargedOverlay.addEventListener('click', (e) => {
+    if (e.target === enlargedOverlay) {
+      closeEnlargedImage();
+    }
+  });
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="video-section">
+    <video class="video-background" autoplay loop muted>
+        <source src="videos/v4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="content-overlay">
+        <div class="counter-container">
+            <div class="counter-item">
+                <div class="counter-number" data-target="308">+0</div>
+                <div class="counter-label" data-translate="Hosted Events">Hosted Events</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" data-target="16006">+0</div>
+                <div class="counter-label" data-translate="People Served">People Served</div>
+            </div>
+            <div class="counter-item">
+                <div class="counter-number" data-target="12440">+0</div>
+                <div class="counter-label" data-translate="Rooms Sold">Rooms Sold</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<script>
+  const counters = document.querySelectorAll('.counter-number');
+  const speed = 200; // The lower the slower
+
+  function startCounting() {
+      counters.forEach(counter => {
+          const updateCount = () => {
+              const target = +counter.getAttribute('data-target');
+              const count = +counter.innerText.replace('+', '');
+              const inc = target / speed;
+
+              if (count < target) {
+                  counter.innerText = '+' + Math.ceil(count + inc);
+                  setTimeout(updateCount, 1);
+              } else {
+                  counter.innerText = '+' + target;
+              }
+          };
+          counter.innerText = '+0'; // Reset to 0 before starting the animation
+          updateCount();
+      });
+  }
+
+  // Intersection Observer to trigger the animation when the section is in view
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              startCounting();
+          }
+      });
+  }, { threshold: 0.5 });
+
+  observer.observe(document.querySelector('.video-section'));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="restaurant top" id="services">
+    <div class="container flex">
+        <div class="left">
+            <img src="imagesMg/Staff/s34.jpeg" alt="Madeleine Garden Events">
+        </div>
+        <div class="right">
+            <div class="text">
+                <h2 data-translate="Our Services at Madeleine Garden">Our Services at Madeleine Garden</h2>
+                <p data-translate="Madeleine Garden description">Madeleine Garden stands out as the ultimate venue for a wide range of events, whether intimate or grand. Offering services for weddings, birthday parties, baby and bridal showers, graduation celebrations, proposals, conferences, corporate meetings, baptisms, communion, and confirmation ceremonies, the venue provides unmatched flexibility and attention to detail. With its spacious hall accommodating up to 700 guests, scenic garden for outdoor events, luxurious guesthouse, and ample parking, Madeleine Garden ensures that every event is memorable and stress-free.</p>
+            </div>
+            <div class="accordionWrapper">
+
+                <!-- Event Services -->
+                <div class="accordionItem open">
+                    <h2 class="accordionIHeading" data-translate="Event Services">Event Services</h2>
+                    <div class="accordionItemContent">
+                        <p data-translate="Event Services description">Madeleine Garden is a versatile venue perfect for hosting a variety of events. Our spacious hall accommodates up to 700 guests, while our outdoor garden provides a scenic backdrop for open-air celebrations. Whether it's a wedding, corporate event, or family gathering, we ensure every detail is professionally managed to create unforgettable experiences.</p>
+                    </div>
+                </div>
+
+                <!-- Accommodation Services -->
+                <div class="accordionItem close">
+                    <h2 class="accordionIHeading" data-translate="Accommodation">Accommodation</h2>
+                    <div class="accordionItemContent">
+                        <p data-translate="Accommodation description">For guests seeking comfort, our on-site guesthouse offers four charming rooms. Each room is designed for relaxation, providing modern amenities and privacy for event hosts and their special guests. Enjoy your stay in our peaceful surroundings before and after your event.</p>
+                    </div>
+                </div>
+
+                <!-- Parking Facilities -->
+                <div class="accordionItem close">
+                    <h2 class="accordionIHeading" data-translate="Parking Facilities">Parking Facilities</h2>
+                    <div class="accordionItemContent">
+                        <p data-translate="Parking description">We offer extensive parking options for our guests. Our interior parking lot can accommodate up to 30 cars, ideal for VIP guests, while our exterior parking area holds over 200 cars, ensuring that all attendees have convenient access to the venue.</p>
+                    </div>
+                </div>
+
+                <!-- Garden Space -->
+                <div class="accordionItem close">
+                    <h2 class="accordionIHeading" data-translate="Garden Space">Garden Space</h2>
+                    <div class="accordionItemContent">
+                        <p data-translate="Garden description">Our garden is perfect for outdoor events that take advantage of natural light and fresh air. Whether it's a casual gathering or a wedding reception, the garden can be transformed into a stunning event space, with flexible decor options to match your event's style.</p>
+                    </div>
+                </div>
+
+                <!-- Past & Upcoming Events -->
+                <div class="accordionItem close">
+                    <h2 class="accordionIHeading" data-translate="Past & Upcoming Events">Past & Upcoming Events</h2>
+                    <div class="accordionItemContent">
+                        <p data-translate="Past & Upcoming Events description">Madeleine Garden has hosted numerous events, from weddings and graduations to corporate meetings. Our upcoming calendar includes a high-profile wedding and a corporate retreat. We take pride in offering flexibility and a unique setting for each occasion.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+  <script>
+    var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionIHeading');
+
+    for (i = 0; i < accHD.length; i++) {
+      accHD[i].addEventListener('click', toggleItem, false);
+    }
+
+    function toggleItem() {
+      var itemClass = this.parentNode.className;
+      for (var i = 0; i < accItem.length; i++) {
+        accItem[i].className = 'accordionItem close';
+      }
+      if (itemClass == 'accordionItem close') {
+        this.parentNode.className = 'accordionItem open';
+      }
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="events-section" id="Events">
+    <h1 data-translate="some-events-title" style="color: #4CAF50; text-align: center;">Some Events at Madeleine Garden</h1>
+
+    <div class="event-container animate-on-scroll left-image animate-graduation">
+        <div class="event-image-container">
+            <img src="imagesMg/event/e28.jpeg" alt="Graduation Party" class="event-image active">
+            <img src="imagesMg/event/e18.jpeg" alt="Graduation Party" class="event-image">
+            <img src="imagesMg/event/e8.jpeg" alt="Graduation Party" class="event-image">
+        </div>
+        <div class="event-content">
+            <h2 class="event-title" data-translate="graduation-title">Graduation Celebration at Madeleine Garden</h2>
+            <p class="event-description" data-translate="graduation-description">Experience the joy of academic achievement in our grand hall. Madeleine Garden offers the perfect venue for your graduation party, accommodating up to 700 guests in a stunning setting.</p>
+            <a href="gallery.html?category=civil-wedding" class="read-more-btn" data-translate="more-events-btn">More Events</a>
+        </div>
+    </div>
+
+    <div class="event-container animate-on-scroll animate-birthday">
+        <div class="event-content">
+            <h2 class="event-title" data-translate="birthday-title">Birthday Bash in Our Guesthouse</h2>
+            <p class="event-description" data-translate="birthday-description">Celebrate your special day in the comfort of our guesthouse. With both indoor and outdoor spaces, it's perfect for intimate gatherings and offers a unique, homely atmosphere.</p>
+            <button class="read-more-btn" data-target="birthday-hall" data-translate="read-more-btn">Read More</button>
+        </div>
+        <div class="event-image-container">
+            <video class="event-video" autoplay muted loop>
+                <source src="videos/V5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <section id="birthday-hall" class="hidden-content">
+        <div class="event-container">
+            <div class="event-image-container">
+                <img src="imagesMg/event/e24.jpeg" alt="Birthday in Grand Hall" class="event-image active">
+                <img src="imagesMg/event/r2.png" alt="Birthday in Grand Hall" class="event-image">
+                <img src="imagesMg/event/e34.jpeg" alt="Birthday in Grand Hall" class="event-image">
+                <img src="imagesMg/event/e36.jpeg" alt="Birthday in Grand Hall" class="event-image">
+                <img src="imagesMg/event/e35.jpeg" alt="Birthday in Grand Hall" class="event-image">
+                <video class="event-video" autoplay muted loop>
+                    <source src="videos/V6.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="event-content">
+                <h2 class="event-title" data-translate="birthday-hall-title">Birthday Celebrations in Our Grand Hall</h2>
+                <p class="event-description" data-translate="birthday-hall-description">Experience unforgettable birthday parties in our spacious grand hall. Perfect for larger gatherings, our hall offers a luxurious setting for celebrations of all ages.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="event-container animate-on-scroll left-image animate-wedding">
+        <div class="event-image-container">
+            <img src="imagesMg/Recent/R10.jpeg" alt="Wedding" class="event-image active">
+            <img src="imagesMg/Recent/R13.jpeg" alt="Wedding" class="event-image">
+            <img src="imagesMg/Recent/R17.jpeg" alt="Wedding" class="event-image">
+        </div>
+        <div class="event-content">
+            <h2 class="event-title" data-translate="wedding-title">Magical Weddings at Madeleine Garden</h2>
+            <p class="event-description" data-translate="wedding-description">Make your dream wedding a reality in our grand hall. With its spacious interior and beautiful surroundings, Madeleine Garden provides the perfect backdrop for your special day.</p>
+            <a href="gallery.html?category=recent-events" class="read-more-btn" data-translate="more-events-btn">More Events</a>
+        </div>
+    </div>
+</section>
+
+<section id="restaurant" class="hidden-content">
+    <div class="container flex">
+        <div class="left">
+            <img src="imagesMg/Staff/s34.jpeg" alt="Madeleine Garden Events">
+        </div>
+        <div class="right">
+            <div class="text">
+                <h2 data-translate="services-title">Our Services at Madeleine Garden</h2>
+                <p data-translate="services-description">Madeleine Garden stands out as the ultimate venue for a wide range of events, whether intimate or grand. Offering services for weddings, birthday parties, baby and bridal showers, graduation celebrations, proposals, conferences, corporate meetings, baptisms, communion, and confirmation ceremonies, the venue provides unmatched flexibility and attention to detail. With its spacious hall accommodating up to 700 guests, scenic garden for outdoor events, luxurious guesthouse, and ample parking, Madeleine Garden ensures that every event is memorable and stress-free.</p>
+            </div>
+            <div class="accordionWrapper">
+                <!-- Accordion content here -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+  <script>
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            } else {
+                entry.target.classList.remove('animated');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.event-container').forEach(item => {
+        observer.observe(item);
+    });
+
+    function cycleImages(container) {
+        const images = container.querySelectorAll('.event-image');
+        let currentIndex = 0;
+        setInterval(() => {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }, 3000);
+    }
+
+    document.querySelectorAll('.event-image-container').forEach(cycleImages);
+
+    function showBirthdayDetails() {
+        const birthdaySection = document.querySelector('.event-container.animate-birthday');
+        const birthdayHall = document.getElementById('birthday-hall');
+        
+        birthdaySection.style.display = 'none';
+        birthdayHall.style.display = 'block';
+        
+        setTimeout(() => {
+            birthdayHall.querySelector('.event-container').classList.add('animated');
+        }, 50);
+    }
+
+    function hideBirthdayDetails() {
+        const birthdaySection = document.querySelector('.event-container.animate-birthday');
+        const birthdayHall = document.getElementById('birthday-hall');
+        
+        birthdayHall.style.display = 'none';
+        birthdaySection.style.display = 'flex';
+        
+        birthdaySection.classList.remove('animated');
+        setTimeout(() => {
+            birthdaySection.classList.add('animated');
+        }, 50);
+    }
+
+    document.querySelector('.read-more-btn[data-target="birthday-hall"]').addEventListener('click', showBirthdayDetails);
+
+    // Ajouter un bouton "Read Less" dans la section #birthday-hall
+    const readLessBtn = document.createElement('button');
+    readLessBtn.className = 'read-less-btn';
+    readLessBtn.textContent = 'Read Less';
+    readLessBtn.addEventListener('click', hideBirthdayDetails);
+    document.querySelector('#birthday-hall .event-content').appendChild(readLessBtn);
+
+    // Réinitialiser les animations lorsqu'on fait défiler la page
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.event-container').forEach(container => {
+            const rect = container.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                container.classList.add('animated');
+            } else {
+                container.classList.remove('animated');
+            }
+        });
+    });
+});
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function isElementInViewport(el) {
+      const rect = el.getBoundingClientRect();
+      return (
+          rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.bottom >= 0
+      );
+  }
+
+  function handleScroll() {
+      const eventContainers = document.querySelectorAll('.event-container');
+      eventContainers.forEach(container => {
+          if (isElementInViewport(container)) {
+              container.classList.add('animated');
+          } else {
+              container.classList.remove('animated');
+          }
+      });
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  window.addEventListener('load', handleScroll);
+
+  // Image slideshow
+  function rotateImages() {
+      const containers = document.querySelectorAll('.event-image-container');
+      containers.forEach(container => {
+          const images = container.querySelectorAll('.event-image');
+          const activeImage = container.querySelector('.event-image.active');
+          const nextImage = activeImage.nextElementSibling || images[0];
+          activeImage.classList.remove('active');
+          nextImage.classList.add('active');
+      });
+  }
+
+  setInterval(rotateImages, 5000);
+</script>
+
+
+
+
+
+
+
+
+
+<!-- HTML for Facilities Section -->
+<section id="facilities" class="facilities">
+    <h2 data-translate="Our Facilities">Our Facilities</h2>
+    <div class="facilities-container">
+        <div class="facility-item left-1">
+            <i class="fas fa-wifi"></i>
+            <h3 data-translate="Wi-Fi">Wi-Fi</h3>
+            <p data-translate="Complimentary high-speed Wi-Fi throughout Madeleine Garden.">Complimentary high-speed Wi-Fi throughout Madeleine Garden.</p>
+        </div>
+        <div class="facility-item right-1">
+            <i class="fas fa-utensils"></i>
+            <h3 data-translate="Dining & Relaxation">Dining & Relaxation</h3>
+            <p data-translate="Cozy dining spaces and comfortable seating areas.">Cozy dining spaces and comfortable seating areas.</p>
+        </div>
+        <div class="facility-item left-2">
+            <i class="fas fa-tv"></i>
+            <h3 data-translate="TV & PlayStation">TV & PlayStation</h3>
+            <p data-translate="Flat-screen TVs and PlayStations for entertainment.">Flat-screen TVs and PlayStations for entertainment.</p>
+        </div>
+        <div class="facility-item right-2">
+            <i class="fas fa-blender"></i>
+            <h3 data-translate="Cooking Spaces">Cooking Spaces</h3>
+            <p data-translate="Fully equipped indoor and outdoor kitchens.">Fully equipped indoor and outdoor kitchens.</p>
+        </div>
+        <div class="facility-item left-1">
+            <i class="fas fa-parking"></i>
+            <h3 data-translate="Parking">Parking</h3>
+            <p data-translate="Ample and secure parking for all guests.">Ample and secure parking for all guests.</p>
+        </div>
+        <div class="facility-item right-1">
+            <i class="fas fa-tree"></i>
+            <h3 data-translate="Outdoor Spaces">Outdoor Spaces</h3>
+            <p data-translate="Beautiful garden areas for relaxation and activities.">Beautiful garden areas for relaxation and activities.</p>
+        </div>
+        <div class="facility-item left-2">
+            <i class="fas fa-users"></i>
+            <h3 data-translate="Community Room">Community Room</h3>
+            <p data-translate="Versatile space for gatherings and events.">Versatile space for gatherings and events.</p>
+        </div>
+        <div class="facility-item right-2">
+            <i class="fas fa-child"></i>
+            <h3 data-translate="Play Spaces">Play Spaces</h3>
+            <p data-translate="Dedicated areas for children's entertainment and safety.">Dedicated areas for children's entertainment and safety.</p>
+        </div>
+    </div>
+</section>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const facilitiesSection = document.getElementById('facilities');
+    const facilityItems = document.querySelectorAll('.facility-item');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Remove any existing animation classes
+          facilityItems.forEach(item => {
+            item.classList.remove('animate-left', 'animate-right');
+          });
+  
+          // Trigger animations
+          const animationSequence = [
+            ['.left-1', 'animate-left'],
+            ['.right-1', 'animate-right'],
+            ['.left-2', 'animate-left'],
+            ['.right-2', 'animate-right']
+          ];
+  
+          animationSequence.forEach(([selector, animationClass], index) => {
+            setTimeout(() => {
+              facilitiesSection.querySelectorAll(selector).forEach(item => {
+                item.classList.add(animationClass);
+              });
+            }, index * 1000); // 1000ms (1 second) delay between each pair
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+  
+    observer.observe(facilitiesSection);
+  });
+  </script>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const readMoreButton = document.getElementById('read-more-safari');
+    
+    if (readMoreButton) {
+        readMoreButton.addEventListener('click', function() {
+            // Get the current page URL
+            const currentPage = window.location.pathname;
+            
+            if (currentPage.endsWith('index.html') || currentPage === '/') {
+                // If we're on the index page, navigate to famille.html with the Safari section ID
+                window.location.href = 'famille.html#Safari';
+            } else if (currentPage.endsWith('famille.html')) {
+                // If we're already on famille.html, just scroll to the Safari section
+                const safariSection = document.getElementById('Safari');
+                if (safariSection) {
+                    safariSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    }
+});
+
+</script>
+
+
+<!-- HTML for Who's Madeleine Safari Section -->
+<section id="madeleine-safari" class="madeleine-safari">
+    <h2 class="title" data-translate="Who's Madeleine Safari">Who's Madeleine Safari</h2>
+    <div class="content-wrapper">
+        <div class="image-container">
+            <img src="imagesMg/Family/f18.jpeg" alt="Madeleine Safari" class="madeleine-image">
+        </div>
+        <div class="text-content">
+            <p data-translate="Born on November 1st, 1980, GITERA SAFARI Madeleine was a highly respected businesswoman known for her intelligence, versatility, and passion. As the founder, creator, and driving force behind Madeleine Garden, she envisioned a space that would bring people together to celebrate life's most meaningful moments.">Born on November 1st, 1980, GITERA SAFARI Madeleine was a highly respected businesswoman known for her intelligence, versatility, and passion. As the founder, creator, and driving force behind Madeleine Garden, she envisioned a space that would bring people together to celebrate life's most meaningful moments.</p>
+            <p data-translate="Madeleine was not only a successful entrepreneur but also a loving mother of six. Her generous spirit extended beyond her immediate family, as she welcomed children from her extended family into her home with open arms. Her home was a haven of love, care, and support, where everyone felt valued and embraced.">Madeleine was not only a successful entrepreneur but also a loving mother of six. Her generous spirit extended beyond her immediate family, as she welcomed children from her extended family into her home with open arms. Her home was a haven of love, care, and support, where everyone felt valued and embraced.</p>
+            <p data-translate="Her love for family, friends, and community fueled her work at Madeleine Garden, making it a place where people could come together for weddings, graduations, reunions, and more. Every celebration at Madeleine Garden reflects her meticulous attention to detail and her deep commitment to making others happy.">Her love for family, friends, and community fueled her work at Madeleine Garden, making it a place where people could come together for weddings, graduations, reunions, and more. Every celebration at Madeleine Garden reflects her meticulous attention to detail and her deep commitment to making others happy.</p>
+            <p data-translate="Outside of her work, Madeleine enjoyed spending time with her family, building strong connections with loved ones, and engaging in community activities. Although she tragically passed away on February 11th, 2024, Madeleine's spirit continues to live on through Madeleine Garden.">Outside of her work, Madeleine enjoyed spending time with her family, building strong connections with loved ones, and engaging in community activities. Although she tragically passed away on February 11th, 2024, Madeleine's spirit continues to live on through Madeleine Garden.</p>
+            <p data-translate="Her legacy of love, generosity, and vision remains alive in every event hosted there, inspiring all who visit to celebrate life just as she did—with passion, care, and joy.">Her legacy of love, generosity, and vision remains alive in every event hosted there, inspiring all who visit to celebrate life just as she did—with passion, care, and joy.</p>
+            <button id="read-more-safari" class="read-more" data-translate="Read More">Read More</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const facilitiesSection = document.getElementById('facilities');
+    const madeleineSafariSection = document.getElementById('madeleine-safari');
+    
+    const observerOptions = {
+      threshold: 0.1
+    };
+  
+    const facilitiesObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const facilityItems = entry.target.querySelectorAll('.facility-item');
+          facilityItems.forEach(item => {
+            item.classList.remove('animate-left', 'animate-right');
+          });
+  
+          const animationSequence = [
+            ['.left-1', 'animate-left'],
+            ['.right-1', 'animate-right'],
+            ['.left-2', 'animate-left'],
+            ['.right-2', 'animate-right']
+          ];
+  
+          animationSequence.forEach(([selector, animationClass], index) => {
+            setTimeout(() => {
+              entry.target.querySelectorAll(selector).forEach(item => {
+                item.classList.add(animationClass);
+              });
+            }, index * 1000);
+          });
+        }
+      });
+    }, observerOptions);
+  
+    const madeleineSafariObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const title = entry.target.querySelector('.title');
+          const imageContainer = entry.target.querySelector('.image-container');
+          const textContent = entry.target.querySelector('.text-content');
+  
+          // Remove animation classes first
+          title.classList.remove('animate');
+          imageContainer.classList.remove('animate');
+          textContent.classList.remove('animate');
+  
+          // Trigger reflow
+          void entry.target.offsetWidth;
+  
+          // Add animation classes
+          title.classList.add('animate');
+          
+          setTimeout(() => {
+            imageContainer.classList.add('animate');
+            textContent.classList.add('animate');
+          }, 500);
+        } else {
+          // Remove animation classes when section is not in view
+          const title = entry.target.querySelector('.title');
+          const imageContainer = entry.target.querySelector('.image-container');
+          const textContent = entry.target.querySelector('.text-content');
+  
+          title.classList.remove('animate');
+          imageContainer.classList.remove('animate');
+          textContent.classList.remove('animate');
+        }
+      });
+    }, observerOptions);
+  
+    if (facilitiesSection) {
+      facilitiesObserver.observe(facilitiesSection);
+    }
+  
+    if (madeleineSafariSection) {
+      madeleineSafariObserver.observe(madeleineSafariSection);
+    }
+  });
+  </script>
+
+
+
+<section id="madeleine-family" class="madeleine-family">
+    <h2 class="title" data-translate="Madeleine Safari's Family">Madeleine Safari's Family</h2>
+    <div class="content-wrapper">
+        <div class="text-content">
+            <p data-translate="Madeleine Safari's family is a Christian family with 8 children, united by love, faith, and dedication. This exceptional family embodies the values of responsibility, passion, and commitment that always characterized Madeleine.">Madeleine Safari's family is a Christian family with 8 children, united by love, faith, and dedication. This exceptional family embodies the values of responsibility, passion, and commitment that always characterized Madeleine.</p>
+
+            <p data-translate="Madeleine's eldest daughter, born on July 11, 2000, was a model of responsibility and dedication. Graduating from Mount Kenya University in 2022, she was deeply involved in realizing her mother's dreams and played a crucial role in creating Madeleine Garden. Tragically, she passed away on February 11, 2024, in the same accident as her beloved mother.">Madeleine's eldest daughter, born on July 11, 2000, was a model of responsibility and dedication. Graduating from Mount Kenya University in 2022, she was deeply involved in realizing her mother's dreams and played a crucial role in creating Madeleine Garden. Tragically, she passed away on February 11, 2024, in the same accident as her beloved mother.</p>
+
+            <p data-translate="Madeleine's husband, a respected mathematics teacher at Lycée de Kigali for over 20 years, is a pillar of wisdom and strength for the family. Despite the heartbreaking loss of his wife and eldest daughter, he continues to guide his children with love and wisdom while ensuring the continuity of Madeleine Garden.">Madeleine's husband, a respected mathematics teacher at Lycée de Kigali for over 20 years, is a pillar of wisdom and strength for the family. Despite the heartbreaking loss of his wife and eldest daughter, he continues to guide his children with love and wisdom while ensuring the continuity of Madeleine Garden.</p>
+
+            <p data-translate="Victor, Madeleine's son, has taken on the responsibility of Managing Director of Madeleine Garden. Young and passionate, he brings new energy and fresh ideas while preserving his mother's vision. His dedication and hard work are essential to the continued success of Madeleine Garden.">Victor, Madeleine's son, has taken on the responsibility of Managing Director of Madeleine Garden. Young and passionate, he brings new energy and fresh ideas while preserving his mother's vision. His dedication and hard work are essential to the continued success of Madeleine Garden.</p>
+
+            <div class="hidden-content">
+                <p data-translate="Together, this Christian family of 8 children embodies the spirit of Madeleine Safari: love, generosity, and vision. Despite the challenges, they remain united, perpetuating Madeleine's legacy through Madeleine Garden and inspiring all who meet them with their strength, love, and unity.">Together, this Christian family of 8 children embodies the spirit of Madeleine Safari: love, generosity, and vision. Despite the challenges, they remain united, perpetuating Madeleine's legacy through Madeleine Garden and inspiring all who meet them with their strength, love, and unity.</p>
+            </div>
+
+            <button class="read-more" data-translate="Read More">Read More</button>
+        </div>
+        <div class="image-container">
+            <img src="imagesMg/Family/f10.jpeg" alt="Madeleine's Family 1" class="family-image">
+            <img src="imagesMg/Family/f13.jpeg" alt="Madeleine's Family 2" class="family-image">
+            <img src="imagesMg/Family/f6.jpeg" alt="Madeleine's Family 3" class="family-image">
+            <img src="imagesMg/Family/f8.jpeg" alt="Madeleine's Family 4" class="family-image">
+            <img src="imagesMg/Family/e30.jpeg" alt="Madeleine's Family 5" class="family-image">
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const section = entry.target;
+        section.querySelector('.title').classList.add('animate');
+        section.querySelector('.text-content').classList.add('animate');
+        section.querySelector('.image-container').classList.add('animate');
+        startImageSlideshow(section);
+      } else {
+        const section = entry.target;
+        section.querySelector('.title').classList.remove('animate');
+        section.querySelector('.text-content').classList.remove('animate');
+        section.querySelector('.image-container').classList.remove('animate');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(document.querySelector('.madeleine-family'));
+  observer.observe(document.querySelector('.victor-section'));
+
+  function startImageSlideshow(section) {
+    const images = section.querySelectorAll('.family-image, .victor-image');
+    let currentIndex = 0;
+
+    function showNextImage() {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }
+
+    images[currentIndex].classList.add('active');
+    setInterval(showNextImage, 4000);
+  }
+
+  document.querySelectorAll('.read-more').forEach(button => {
+    button.addEventListener('click', function() {
+      const hiddenContent = this.previousElementSibling;
+      if (hiddenContent.style.display === 'block') {
+        hiddenContent.style.display = 'none';
+        this.textContent = 'Read More';
+      } else {
+        hiddenContent.style.display = 'block';
+        this.textContent = 'Read Less';
+      }
+    });
+  });
+});
+
+
+  </script>
+
+
+
+
+
+<section id="victor-section" class="victor-section">
+    <h2 class="title" data-translate="victor_title">Victor – Managing Director of Madeleine Garden</h2>
+    <div class="content-wrapper">
+        <div class="image-container">
+            <img src="imagesMg/Staff/s11.jpeg" alt="Victor 1" class="victor-image">
+            <img src="imagesMg/event/e20.jpeg" alt="Victor 2" class="victor-image">
+            <img src="imagesMg/Staff/s24.jpeg" alt="Victor 3" class="victor-image">
+            <img src="imagesMg/Staff/v1.jpeg" alt="Victor 4" class="victor-image">
+            <img src="imagesMg/Staff/v.jpeg" alt="Victor 5" class="victor-image">
+        </div>
+        <div class="text-content">
+            <p data-translate="victor_paragraph_1">Victor, the son of Madeleine, has taken on the mantle of responsibility as the Managing Director of Madeleine Garden. A young, passionate individual, Victor approaches his role with dedication and enthusiasm, ensuring the continued growth and development of the family's beloved venue. As a student, he has always been committed to learning and bettering himself, qualities that now serve him well as he manages the operations of Madeleine Garden.</p>
+            <p data-translate="victor_paragraph_2">Victor oversees every aspect of Madeleine Garden, from event planning to maintaining the beauty of the space. His keen sense of responsibility and love for the venue, which was founded by his mother, drives him to ensure that Madeleine Garden continues to flourish. He brings fresh ideas and youthful energy to the role, making it his mission to preserve his mother's vision while adapting to new opportunities for growth.</p>
+            <div class="hidden-content">
+                <p data-translate="victor_paragraph_3">As the Managing Director, Victor's leadership is central to Madeleine Garden's success. He manages a team, coordinates events, and ensures that the venue remains a premier destination for celebrations and gatherings. His hardworking nature and genuine love for the garden make him an indispensable part of its future.</p>
+                <p data-translate="victor_paragraph_4">Victor comes from a family of six children, including two boys, and has taken on the role of caretaker and leader within the family. His commitment to the legacy of Madeleine Garden reflects his deep connection to his mother's dream and his determination to see it thrive for years to come.</p>
+            </div>
+            <button class="read-more" data-translate="read_more">Read More</button>
+        </div>
+    </div>
+</section>
+
+<section class="gallery mtop" id="gallery">
+    <div class="container">
+        <div class="heading_top flex1">
+            <div class="heading">
+                <h5 data-translate="welcome_gallery">WELCOME TO OUR PHOTO GALLERY</h5>
+                <h2 data-translate="photo_gallery_title">Photo Gallery of Our Hotel</h2>
+            </div>
+            <div class="button">
+                <button class="btn1" onclick="location.href='gallery.html'" data-translate="view_gallery">VIEW GALLERY</button>
+            </div>
+        </div>
+        <div class="owl-carousel owl-theme">
+            <div class="item">
+                <img src="imagesMg/Rooms/R13.jpeg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagesMg/GuestHouse/M7.jpeg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagesMg/Rooms/R11.jpeg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagesMg/GuestHouse/M2.jpeg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagesMg/GuestHouse/M22.jpeg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagesMg/GuestHouse/M10.jpeg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagesMg/M88.jpeg" alt="">
+            </div>
+            <div class="item">
+                <img src="imagesMg/GuestHouse/M11.jpeg" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+
+
+  <script src="js/translate.js"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 4
+        }
+      }
+    })
+  </script>
+
+
+
+<section class="map top">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255281.19892369377!2d30.103549581262583!3d-1.936696257481071!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca4259338c8bb%3A0xc4a1be1bc37d3291!2sKigali%2C%20Rwanda!5e0!3m2!1sfr!2sfr!4v1693400392605!5m2!1sfr!2sfr" 
+    width="600" 
+    height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</section>
+
+
+
+
+
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3 data-translate="footer-about-title">About Us</h3>
+            <p data-translate="footer-about-description">Madeleine Garden is a beautiful venue for events and relaxation, offering a perfect blend of nature and luxury for your special occasions.</p>
+        </div>
+        <div class="footer-section">
+            <h3 data-translate="footer-quick-links-title">Quick Links</h3>
+            <ul>
+                <li><a href="#about" data-translate="footer-link-about">About</a></li>
+                <li><a href="gallery.html" data-translate="footer-link-gallery">Gallery</a></li>
+                <li><a href="famille.html" data-translate="footer-link-family">Family</a></li>
+                <li><a href="#contact" data-translate="footer-link-contact">Contact</a></li>
+                <li><a href="#booking" data-translate="footer-link-book">Book Now</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3 data-translate="footer-contact-title">Contact Us</h3>
+            <p data-translate="footer-email">Email: info@madeleinegarden.com</p>
+            <div class="phone-numbers">
+                <span data-translate="footer-phone">Phone:</span>
+                <div class="number-list">
+                    <a href="https://wa.me/250788663798" target="_blank">+250 788 663 798</a>
+                    <a href="https://wa.me/250781333778" target="_blank">+250 781 333 778</a>
+                    <a href="https://wa.me/250788544509" target="_blank">+250 788 544 509</a>
+                </div>
+            </div>
+            <p><a href="https://www.google.com/maps?q=-1.9441,30.1232" target="_blank" data-translate="footer-address">Address: Madeleine Garden, Kinyinya, near the Bus park of Kinyinya, KG 382 st</a></p>
+        </div>
+
+        <div class="footer-section">
+            <h3 data-translate="footer-follow-title">Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/madeleine__garden?igsh=dmU4N2d5cnpsM2xx&utm_source=qr" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-translate="footer-copyright">&copy; 2024 Madeleine Garden. All rights reserved. | Design by Jocos</p>
+    </div>
+</footer>
+
+
+
+<script>
+
+
+
+const imageItems = document.querySelectorAll('.image_item img');
+imageItems.forEach(img => {
+  img.addEventListener('mouseenter', () => {
+    img.style.transform = 'scale(1.05)';
+    img.style.boxShadow = '0 0 15px rgba(0, 255, 0, 0.5)';
+  });
+  img.addEventListener('mouseleave', () => {
+    img.style.transform = 'scale(1)';
+    img.style.boxShadow = 'none';
+  });
+});
+
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>

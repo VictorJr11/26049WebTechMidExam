@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <title>Galerie Photo</title>
+    
+
+
+
+<style>
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #FFFFFF;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #800020;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+#gallery-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #008000;
+    color: #FFFFFF;
+    position: sticky;
+    top: 80px; /* Adjust based on your header height */
+    z-index: 999;
+}
+
+
+
+
+
+
+
+
+
+
+
+.garden-name {
+    color: white;
+    font-weight: bold;
+}
+#categories {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    position: sticky;
+    top: 130px;
+    background-color: #FFFFFF;
+    z-index: 998;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.category-btn {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.category-btn.active {
+    background-color: #008000;
+    color: #FFFFFF;
+    transform: scale(1.05);
+}
+.category-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+}
+.gallery-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+/* Animation pour le changement de catégorie */
+@keyframes categoryChange {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.category-change {
+    animation: categoryChange 6s ease-in-out;
+}
+/* Animation pour la fermeture de l'image */
+@keyframes imageClose {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(0.5); opacity: 0; }
+}
+.image-close {
+    animation: imageClose 0.5s ease-in;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/* Désactiver les animations pour Next et Prev */
+.prev:active, .next:active {
+    animation: none;
+}
+/* Conserver l'animation pour Close */
+.close:active {
+    animation: imageClose 0.5s ease-in;
+}
+
+
+
+
+
+
+
+
+
+/* Réduire davantage la taille du logo */
+.logo img {
+  max-width: 40px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    max-width: 30px;
+  }
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem;
+}
+
+.logo {
+    margin-right: auto;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+
+
+
+/* New CSS for sticky header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.8rem;
+    }
+
+    footer .social-icons a {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+
+
+
+/* Footer styles */
+footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 3rem 0 1rem;
+    margin-top: 3rem;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-section {
+    flex: 1;
+    margin-bottom: 2rem;
+    min-width: 250px;
+    padding: 0 1rem;
+    transition: transform 0.3s ease;
+}
+
+.footer-section:hover {
+    transform: translateY(-5px);
+}
+
+.footer-section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: #e74c3c;
+    position: relative;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 50px;
+    height: 2px;
+    background-color: #e74c3c;
+}
+
+.footer-section p, .footer-section ul li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #e74c3c;
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: #ecf0f1;
+    font-size: 1.8rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #e74c3c;
+    transform: scale(1.2);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid #34495e;
+}
+
+.footer-bottom p {
+    font-size: 0.9rem;
+    color: #bdc3c7;
+}
+
+/* Animation for footer sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footer-section {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.footer-section:nth-child(1) { animation-delay: 0.1s; }
+.footer-section:nth-child(2) { animation-delay: 0.2s; }
+.footer-section:nth-child(3) { animation-delay: 0.3s; }
+.footer-section:nth-child(4) { animation-delay: 0.4s; }
+
+/* Responsive design for footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-section {
+        margin-bottom: 2rem;
+        padding: 0;
+    }
+}
+
+
+
+
+
+
+
+.footer-section .phone-numbers {
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-section .phone-numbers span {
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.footer-section .number-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-section .number-list a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    line-height: 1.5;
+}
+
+.footer-section .number-list a:hover {
+    color: #e74c3c;
+}
+
+p a {
+    color: white;
+    text-decoration: none;
+}
+
+p a:hover {
+    color: #e0e0e0; /* Légère variation de couleur au survol */
+}
+
+
+
+
+</style>
+
+
+
+
+</head>
+<body>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+
+    // Function to update active category
+    function updateActiveCategory(category) {
+        categoryBtns.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.category === category) {
+                btn.classList.add('active');
+            }
+        });
+    }
+
+    // Get category from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    if (categoryParam && imageDatabase[categoryParam]) {
+        currentCategory = categoryParam;
+    }
+
+    // Update active category based on URL parameter
+    updateActiveCategory(category);
+
+    // Add click event listeners to category buttons
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const newCategory = this.dataset.category;
+            updateActiveCategory(newCategory);
+            // Update URL without reloading the page
+            history.pushState(null, '', `?category=${newCategory}`);
+        });
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+    <header>
+        <a href="#" class="logo"> <img src="imagesMg/logo/logo.jpeg" alt=""> </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="famille.html#about">About Us</a></li>
+                <li><a href="index.html#Events">Events</a></li>
+                <li><a href="index.html#room">Rooms</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    
+
+    <main>
+        <section id="gallery-info">
+            <div class="gallery-title">Gallery - <span id="category-name">Guesthouse</span></div>
+            <div class="garden-name">Madeleine Garden</div>
+        </section>
+
+        <section id="categories">
+            <button class="category-btn active" data-category="vacation">Guesthouse</button>
+            <button class="category-btn" data-category="proposal">Party room</button>
+            <button class="category-btn" data-category="rooms">Rooms</button>
+            <button class="category-btn" data-category="dowry">Staff MG</button>
+            <button class="category-btn" data-category="civil-wedding">Events</button>
+            <button class="category-btn" data-category="religious-wedding">Family UNEN</button>
+            <button class="category-btn" data-category="recent-events">Recent Events</button>
+        </section>
+
+        <section id="gallery"></section>
+
+
+
+
+
+        
+     <!-- Add this before closing the </main> tag -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Madeleine Garden is a beautiful venue for events and relaxation, offering a perfect blend of nature and luxury for your special occasions.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+
+                <li><a href="index.html">Home</a></li>
+                <li><a href="famille.html">Family</a></li>
+                <li><a href="#contact">Events</a></li>
+                <li><a href="index.html#room">Rooms</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </div>
+
+
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: info@madeleinegarden.com</p>
+            <div class="phone-numbers">
+                <span>Phone:</span>
+                <div class="number-list">
+                    <a href="https://wa.me/250788663798" target="_blank">+250 788 663 798</a>
+                    <a href="https://wa.me/250781333778" target="_blank">+250 781 333 778</a>
+                    <a href="https://wa.me/250788544509" target="_blank">+250 788 544 509</a>
+                </div>
+            </div>
+            <p><a href="https://maps.app.goo.gl/uUxcU7iBMMk8aPPe9?g_st=com.google.maps.preview.copy" target="_blank">Address: Madeleine Garden, Kinyinya, near the Bus park of Kinyinya, KG 382 st</a></p>
+        </div>
+
+
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/madeleine__garden?igsh=dmU4N2d5cnpsM2xx&utm_source=qr" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+                
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Madeleine Garden. All rights reserved. | Design by Jocos</p>
+    </div>
+</footer>
+        
+    </main>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
+
+
+
+
+
+
+
+    
+    <script> 
+
+const gallery = document.getElementById('gallery');
+const modal = document.getElementById('modal');
+const modalImg = document.getElementById('modal-img');
+const closeBtn = document.getElementsByClassName('close')[0];
+const prevBtn = document.getElementsByClassName('prev')[0];
+const nextBtn = document.getElementsByClassName('next')[0];
+const categoryBtns = document.querySelectorAll('.category-btn');
+const categoryName = document.getElementById('category-name');
+
+let currentCategory = 'vacation';
+let currentImageIndex = 0;
+let images = [];
+
+// Simuler une base de données d'images
+const imageDatabase = {
+    vacation: ['imagesMg/GuestHouse/M1.jpeg', 'imagesMg/GuestHouse/M2.jpeg', 'imagesMg/GuestHouse/M3.jpeg', 'imagesMg/GuestHouse/M4.jpeg', 'imagesMg/GuestHouse/M7.jpeg', 'imagesMg/GuestHouse/M9.jpeg', 'imagesMg/GuestHouse/M10.jpeg', 'imagesMg/GuestHouse/M11.jpeg', 'imagesMg/GuestHouse/M12.jpeg', 'imagesMg/GuestHouse/M15.jpeg', 'imagesMg/GuestHouse/M17.jpeg', 'imagesMg/GuestHouse/M19.jpeg', 'imagesMg/GuestHouse/M20.jpeg', 'imagesMg/GuestHouse/M22.jpeg', 'imagesMg/GuestHouse/M28.jpeg', 'imagesMg/GuestHouse/M34.jpeg'],
+    proposal: ['imagesMg/M93.jpeg','imagesMg/M94.jpeg','imagesMg/M90.jpeg','imagesMg/M94.jpeg','imagesMg/M98.jpeg','imagesMg/M92.jpeg','imagesMg/M70.jpeg','imagesMg/M71.jpeg','imagesMg/M61.jpeg','imagesMg/M77.jpeg','imagesMg/M78.jpeg','imagesMg/M79.jpeg','imagesMg/M83.jpeg','imagesMg/M88.jpeg','imagesMg/M89.jpeg','imagesMg/M90.jpeg', 'imagesMg/M27.jpeg', 'imagesMg/M50.jpeg', 'imagesMg/M51.jpeg', 'imagesMg/M52.jpeg', 'imagesMg/M53.jpeg','imagesMg/M91.jpeg','imagesMg/M92.jpeg','imagesMg/M93.jpeg','imagesMg/M94.jpeg','imagesMg/M95.jpeg','imagesMg/M96.jpeg','imagesMg/M97.jpeg','imagesMg/M98.jpeg','imagesMg/M99.jpeg','imagesMg/M100.jpeg','imagesMg/M101.jpeg', 'imagesMg/M54.jpeg', 'imagesMg/M55.jpeg', 'imagesMg/M56.jpeg', 'imagesMg/M57.jpeg', 'imagesMg/M60.jpeg', 'imagesMg/M36.jpeg', 'imagesMg/M37.jpeg', 'imagesMg/M38.jpeg', 'imagesMg/M39.jpeg', 'imagesMg/M5.jpeg', 'imagesMg/M6.jpeg', 'imagesMg/M8.jpeg', 'imagesMg/M13.jpeg', 'imagesMg/M14.jpeg', 'imagesMg/M16.jpeg', 'imagesMg/M18.jpeg', 'imagesMg/M21.jpeg', 'imagesMg/M23.jpeg', 'imagesMg/M24.jpeg', 'imagesMg/M25.jpeg', 'imagesMg/M26.jpeg', 'imagesMg/M29.jpeg', 'imagesMg/M30.jpeg', 'imagesMg/M31.jpeg', 'imagesMg/M32.jpeg', 'imagesMg/M33.jpeg', 'imagesMg/M35.jpeg', 'imagesMg/M40.jpeg', 'imagesMg/M41.jpeg', 'imagesMg/M42.jpeg', 'imagesMg/M43.jpeg', 'imagesMg/M44.jpeg', 'imagesMg/M45.jpeg', 'imagesMg/M46.jpeg','imagesMg/M101.jpeg','imagesMg/M102.jpeg','imagesMg/M103.jpeg','imagesMg/M104.jpeg','imagesMg/M61.jpeg', 'imagesMg/M47.jpeg', 'imagesMg/M48.jpeg', 'imagesMg/M49.jpeg', 'imagesMg/M61.jpeg'],
+
+    rooms:['imagesMg/Rooms/R1.jpeg', 'imagesMg/Rooms/r2.jpeg', 'imagesMg/Rooms/R3.jpeg', 'imagesMg/Rooms/R4.jpeg', 'imagesMg/Rooms/R5.jpeg', 'imagesMg/Rooms/R6.jpeg', 'imagesMg/Rooms/R7.jpeg', 'imagesMg/Rooms/R8.jpeg', 'imagesMg/Rooms/R9.jpeg', 'imagesMg/Rooms/R10.jpeg', 'imagesMg/Rooms/R11.jpeg', 'imagesMg/Rooms/R12.jpeg', 'imagesMg/Rooms/R13.jpeg', 'imagesMg/Rooms/R14.jpeg', 'imagesMg/Rooms/R15.jpeg', 'imagesMg/Rooms/R16.jpeg', 'imagesMg/Rooms/R17.jpeg', 'imagesMg/Rooms/R18.jpeg', 'imagesMg/Rooms/R19.jpeg', 'imagesMg/Rooms/R20.jpeg', 'imagesMg/Rooms/R21.jpeg', 'imagesMg/Rooms/r22.jpeg', 'imagesMg/Rooms/r23.jpeg', 'imagesMg/Rooms/r24.jpeg', 'imagesMg/Rooms/r25.jpeg', 'imagesMg/Rooms/r26.jpeg', 'imagesMg/Rooms/r27.jpeg', 'imagesMg/Rooms/r28.jpeg', 'imagesMg/Rooms/r29.jpeg', 'imagesMg/Rooms/r30.jpeg', 'imagesMg/Rooms/r31.jpeg', 'imagesMg/Rooms/r32.jpeg', 'imagesMg/Rooms/R33.jpeg', 'imagesMg/Rooms/R34.jpeg'],
+    dowry: ['imagesMg/staff/s1.jpeg', 'imagesMg/staff/s3.jpeg', 'imagesMg/staff/s2.jpeg', 'imagesMg/staff/s4.jpeg', 'imagesMg/staff/s8.jpeg', 'imagesMg/staff/s11.jpeg', 'imagesMg/staff/s5.jpeg', 'imagesMg/staff/s12.jpeg', 'imagesMg/staff/s7.jpeg', 'imagesMg/staff/s13.jpeg', 'imagesMg/staff/s20.jpeg', 'imagesMg/staff/s14.jpeg', 'imagesMg/staff/s15.jpeg', 'imagesMg/staff/s23.jpeg', 'imagesMg/staff/s24.jpeg', 'imagesMg/staff/s27.jpeg', 'imagesMg/staff/s25.jpeg', 'imagesMg/staff/s35.jpeg'],
+    'civil-wedding': ['imagesMg/event/e1.jpeg', 'imagesMg/event/e2.jpeg', 'imagesMg/event/e3.jpeg', 'imagesMg/event/e4.jpeg', 'imagesMg/event/e5.jpeg', 'imagesMg/event/e6.jpeg', 'imagesMg/event/e7.jpeg', 'imagesMg/event/e8.jpeg', 'imagesMg/event/e9.jpeg', 'imagesMg/event/e10.jpeg', 'imagesMg/event/f1.jpeg', 'imagesMg/event/f2.jpeg', 'imagesMg/event/f3.jpeg', 'imagesMg/event/e11.jpeg', 'imagesMg/event/e12.jpeg', 'imagesMg/event/e13.jpeg', 'imagesMg/event/e14.jpeg', 'imagesMg/event/e15.jpeg', 'imagesMg/event/e16.jpeg', 'imagesMg/event/e17.jpeg', 'imagesMg/event/e18.jpeg', 'imagesMg/event/e19.jpeg', 'imagesMg/event/e20.jpeg', 'imagesMg/event/e21.jpeg', 'imagesMg/event/e22.jpeg', 'imagesMg/event/e23.jpeg', 'imagesMg/event/e24.jpeg', 'imagesMg/event/e25.jpeg', 'imagesMg/event/e26.jpeg', 'imagesMg/event/e27.jpeg', 'imagesMg/event/e28.jpeg', 'imagesMg/event/e29.jpeg', 'imagesMg/event/e32.jpeg', 'imagesMg/event/e31.jpeg', 'imagesMg/event/e33.jpeg'],
+    'religious-wedding': ['imagesMg/Family/f4.jpeg', 'imagesMg/Family/f5.jpeg', 'imagesMg/Family/f10.jpeg','imagesMg/Family/f11.jpeg','imagesMg/Family/f18.jpeg','imagesMg/Family/f22.jpeg','imagesMg/Family/s29.jpeg','imagesMg/Family/f21.jpeg','imagesMg/Family/f19.jpeg','imagesMg/Family/f9.jpeg','imagesMg/Family/f23.jpeg','imagesMg/Family/f13.jpeg','imagesMg/Family/P1.jpeg','imagesMg/Family/e54.jpeg','imagesMg/Family/f17.jpeg','imagesMg/Family/f12.jpeg','imagesMg/Family/f15.jpeg','imagesMg/Family/e28.jpeg','imagesMg/Family/e29.jpeg','imagesMg/Family/e30.jpeg','imagesMg/Family/e31.jpeg','imagesMg/Family/e32.jpeg','imagesMg/Family/e33.jpeg','imagesMg/Family/e34.jpeg','imagesMg/Family/e35.jpeg','imagesMg/Family/e36.jpeg','imagesMg/Family/e40.jpeg','imagesMg/Family/e52.jpeg','imagesMg/Family/s29.jpeg','imagesMg/Family/s34.jpeg','imagesMg/Family/s33.jpeg'],
+    'recent-events': ['imagesMg/Recent/R1.jpeg', 'imagesMg/Recent/R2.jpeg', 'imagesMg/Recent/R3.jpeg','imagesMg/Recent/R4.jpeg','imagesMg/Recent/R5.jpeg','imagesMg/Recent/R6.jpeg','imagesMg/Recent/R7.jpeg','imagesMg/Recent/R8.jpeg','imagesMg/Recent/R9.jpeg','imagesMg/Recent/R10.jpeg','imagesMg/Recent/R11.jpeg','imagesMg/Recent/R12.jpeg','imagesMg/Recent/R13.jpeg','imagesMg/Recent/R14.jpeg','imagesMg/Recent/R15.jpeg','imagesMg/Recent/R16.jpeg','imagesMg/Recent/R17.jpeg','imagesMg/Recent/R18.jpeg','imagesMg/Recent/R19.jpeg','imagesMg/Recent/R20.jpeg','imagesMg/Recent/R21.jpeg']
+};
+
+function loadImages(category) {
+        gallery.innerHTML = '';
+        images = imageDatabase[category] || [];
+        images.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `${category} image ${index + 1}`;
+            img.classList.add('gallery-img', 'category-change');
+            img.addEventListener('click', () => openModal(index));
+            gallery.appendChild(img);
+            
+            setTimeout(() => {
+                img.classList.remove('category-change');
+            }, 6000);
+        });
+
+        // Mise à jour du nom de la catégorie
+        if (categoryName) {
+            categoryName.textContent = category.replace('-', ' ').toUpperCase();
+        }
+
+        // Mise à jour du bouton de catégorie actif
+        categoryBtns.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.category === category);
+        });
+    }
+
+    function openModal(index) {
+        modal.style.display = 'block';
+        modalImg.src = images[index];
+        modalImg.classList.add('image-open');
+        currentImageIndex = index;
+    }
+
+    function changeImage(step) {
+        currentImageIndex += step;
+        if (currentImageIndex < 0) currentImageIndex = images.length - 1;
+        if (currentImageIndex >= images.length) currentImageIndex = 0;
+        
+        modalImg.classList.remove('image-open', 'image-close');
+        modalImg.src = images[currentImageIndex];
+    }
+
+    function closeModal() {
+        modalImg.classList.add('image-close');
+        setTimeout(() => {
+            modal.style.display = 'none';
+            modalImg.classList.remove('image-open', 'image-close');
+        }, 500);
+    }
+
+    closeBtn.onclick = closeModal;
+    prevBtn.onclick = () => changeImage(-1);
+    nextBtn.onclick = () => changeImage(1);
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentCategory = btn.dataset.category;
+            loadImages(currentCategory);
+            history.pushState(null, '', `?category=${currentCategory}`);
+        });
+    });
+
+    // Charger la catégorie à partir de l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryParam = urlParams.get('category');
+    if (categoryParam && imageDatabase[categoryParam]) {
+        currentCategory = categoryParam;
+    }
+
+    // Charger les images initiales
+    loadImages(currentCategory);
+
+
+    </script>
+
+    
+</body>
+</html>

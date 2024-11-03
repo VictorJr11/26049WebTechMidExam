@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Booking Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        .logo img {
+            max-height: 50px;
+        }
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+        }
+        .btn-group-vertical {
+            min-width: 120px;
+        }
+
+
+
+
+             body {
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,.1);
+        }
+        .logo img {
+            max-height: 50px;
+        }
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+        }
+        .btn-group-vertical {
+            min-width: 120px;
+        }
+        .filter-panel {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .filter-panel .form-group {
+            margin-bottom: 15px;
+        }
+        .sorting-header {
+            cursor: pointer;
+        }
+        .sorting-header:hover {
+            background-color: #f8f9fa;
+        }
+        .sorting-header i {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<header class="header py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-auto">
+                <a href="#" class="logo">
+                    <img src="imagesMg/logo/logo.jpeg" alt="Madeleine Garden Logo">
+                </a>
+            </div>
+            <div class="col text-end">
+                <nav>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ManagementBooking.html">Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="userManagement.html">Management</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#Events">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gallery.html">Gallery</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Family
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#madeleine-safari">Who's Madeleine Safari?</a></li>
+                                <li><a class="dropdown-item" href="famille.html#Dieudonne">Dieudonne Unencan</a></li>
+                                <li><a class="dropdown-item" href="famille.html#binen">Binen Gladys</a></li>
+                                <li><a class="dropdown-item" href="#madeleine-family">Madeleine's Family</a></li>
+                                <li><a class="dropdown-item" href="#victor-section">Victor Jacker</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+
+
+
+<div class="container mt-5">
+    <h1 class="mb-4">Booking Management</h1>
+
+    <!-- Filter and Sort Panel -->
+    <div class="filter-panel">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="customerNameFilter" class="form-label">Customer Name</label>
+                    <input type="text" class="form-control" id="customerNameFilter" placeholder="Search by name">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="statusFilter" class="form-label">Status</label>
+                    <select class="form-select" id="statusFilter">
+                        <option value="">All Statuses</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="startDate">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="endDate" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="endDate">
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="minPrice" class="form-label">Min Price</label>
+                    <input type="number" class="form-control" id="minPrice" step="0.01">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="maxPrice" class="form-label">Max Price</label>
+                    <input type="number" class="form-control" id="maxPrice" step="0.01">
+                </div>
+            </div>
+            <div class="col-md-6 d-flex align-items-end">
+                <button class="btn btn-primary me-2" onclick="applyFilters()">
+                    <i class="fas fa-filter"></i> Apply Filters
+                </button>
+                <button class="btn btn-secondary" onclick="resetFilters()">
+                    <i class="fas fa-undo"></i> Reset Filters
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addBookingModal">
+        <i class="fas fa-plus"></i> Add Booking
+    </button>
+
+    <div class="table-container p-4">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th class="sorting-header" onclick="sortTable('id')">ID <i class="fas fa-sort"></i></th>
+                <th class="sorting-header" onclick="sortTable('name')">Name <i class="fas fa-sort"></i></th>
+                <th class="sorting-header" onclick="sortTable('email')">Email <i class="fas fa-sort"></i></th>
+                <th class="sorting-header" onclick="sortTable('checkInDate')">Check-in <i class="fas fa-sort"></i></th>
+                <th class="sorting-header" onclick="sortTable('checkOutDate')">Check-out <i class="fas fa-sort"></i></th>
+                <th class="sorting-header" onclick="sortTable('status')">Status <i class="fas fa-sort"></i></th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="bookingTableBody">
+            <!-- Booking rows will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal for Add Booking -->
+<div class="modal fade" id="addBookingModal" tabindex="-1" aria-labelledby="addBookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addBookingModalLabel">Add New Booking</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addBookingForm">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="addFirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="addFirstName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="addLastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="addLastName" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="addEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="addEmail" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="addPhone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="addPhone" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="addCheckInDate" class="form-label">Check-in Date</label>
+                            <input type="date" class="form-control" id="addCheckInDate" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="addCheckOutDate" class="form-label">Check-out Date</label>
+                            <input type="date" class="form-control" id="addCheckOutDate" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="addBookingType" class="form-label">Booking Type</label>
+                            <input type="text" class="form-control" id="addBookingType" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="addArrival" class="form-label">Arrival Time</label>
+                            <input type="time" class="form-control" id="addArrival" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="addCountry" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="addCountry" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="addCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="addCity" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="addAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="addAddress" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="addTotalPrice" class="form-label">Total Price</label>
+                        <input type="number" class="form-control" id="addTotalPrice" step="0.01" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="addBooking()">Add Booking</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Booking Details -->
+<div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="bookingModalLabel">Booking Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="bookingForm">
+                    <input type="hidden" id="bookingId">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="checkInDate" class="form-label">Check-in Date</label>
+                            <input type="date" class="form-control" id="checkInDate" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="checkOutDate" class="form-label">Check-out Date</label>
+                            <input type="date" class="form-control" id="checkOutDate" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="bookingType" class="form-label">Booking Type</label>
+                            <input type="text" class="form-control" id="bookingType" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="arrival" class="form-label">Arrival Time</label>
+                            <input type="time" class="form-control" id="arrival" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" class="form-control" id="country" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="city" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="address" required>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status" required>
+                                <option value="Pending">Pending</option>
+                                <option value="Confirmed">Confirmed</option>
+                                <option value="Cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="totalPrice" class="form-label">Total Price</label>
+                            <input type="number" class="form-control" id="totalPrice" step="0.01" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveBooking()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!--<script src="js/booking-management.js"></script>-->
+<script>
+
+
+
+
+
+    // Global variables
+ let bookings = [];
+ let currentSortColumn = 'id';
+ let sortDirection = 'asc';
+
+ // API endpoints
+ const API_BASE_URL = '/api/bookings';
+
+ // Utility functions
+ const formatDate = (dateString) => {
+     return new Date(dateString).toLocaleDateString();
+ };
+
+ const showAlert = (message, type = 'success') => {
+     const alertDiv = document.createElement('div');
+     alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+     alertDiv.role = 'alert';
+     alertDiv.innerHTML = `
+         ${message}
+         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+     `;
+     document.querySelector('.container').insertBefore(alertDiv, document.querySelector('.filter-panel'));
+     setTimeout(() => alertDiv.remove(), 5000);
+ };
+
+
+
+
+
+
+
+
+
+
+
+
+ // Fetch all bookings
+ const fetchBookings = async () => {
+     try {
+         const response = await fetch(API_BASE_URL);
+         if (!response.ok) throw new Error('Failed to fetch bookings');
+         bookings = await response.json();
+         renderBookings();
+     } catch (error) {
+         showAlert(error.message, 'danger');
+     }
+ };
+
+ // Render bookings table
+ const renderBookings = () => {
+     const tableBody = document.getElementById('bookingTableBody');
+     tableBody.innerHTML = '';
+
+     bookings.forEach(booking => {
+         const row = document.createElement('tr');
+         row.innerHTML = `
+             <td>${booking.id}</td>
+             <td>${booking.firstName} ${booking.lastName}</td>
+             <td>${booking.email}</td>
+             <td>${formatDate(booking.checkInDate)}</td>
+             <td>${formatDate(booking.checkOutDate)}</td>
+             <td>
+                 <span class="badge bg-${getStatusBadgeClass(booking.status)}">${booking.status}</span>
+             </td>
+             <td>
+                 <button class="btn btn-sm btn-primary me-1" onclick="openEditModal(${booking.id})">
+                     <i class="fas fa-edit"></i>
+                 </button>
+                 <button class="btn btn-sm btn-danger" onclick="deleteBooking(${booking.id})">
+                     <i class="fas fa-trash"></i>
+                 </button>
+             </td>
+         `;
+         tableBody.appendChild(row);
+     });
+ };
+
+ const getStatusBadgeClass = (status) => {
+     switch (status) {
+         case 'Confirmed': return 'success';
+         case 'Pending': return 'warning';
+         case 'Cancelled': return 'danger';
+         default: return 'secondary';
+     }
+ };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+async function applyFilters() {
+    // Debounce to limit API calls while typing
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(async () => {
+        const customerName = document.getElementById('customerNameFilter').value;
+        const status = document.getElementById('statusFilter').value;
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+        const minPrice = document.getElementById('minPrice').value;
+        const maxPrice = document.getElementById('maxPrice').value;
+
+        // Construct query parameters based on the filters
+        const queryParams = new URLSearchParams();
+        if (customerName) queryParams.append('customerName', customerName);
+        if (status) queryParams.append('status', status);
+        if (startDate) queryParams.append('startDate', startDate);
+        if (endDate) queryParams.append('endDate', endDate);
+        if (minPrice) queryParams.append('minPrice', minPrice);
+        if (maxPrice) queryParams.append('maxPrice', maxPrice);
+
+        try {
+            const response = await fetch(`/api/bookings/search?${queryParams.toString()}`);
+
+            if (!response.ok) {
+                console.error('Failed to fetch bookings');
+                return;
+            }
+
+            const bookings = await response.json();
+            updateBookingTable(bookings);
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }, 300); // Wait 300ms after typing stops
+}
+
+
+
+
+
+
+function resetFilters() {
+    document.getElementById('customerNameFilter').value = '';
+    document.getElementById('statusFilter').value = '';
+    document.getElementById('startDate').value = '';
+    document.getElementById('endDate').value = '';
+    document.getElementById('minPrice').value = '';
+    document.getElementById('maxPrice').value = '';
+
+    // Re-fetch all bookings without filters
+    applyFilters();
+}
+
+
+
+function updateBookingTable(bookings) {
+    const bookingTableBody = document.getElementById('bookingTableBody');
+    bookingTableBody.innerHTML = ''; // Clear previous results
+
+    bookings.forEach(booking => {
+        const row = document.createElement('tr');
+
+        row.innerHTML = `
+            <td>${booking.id}</td>
+            <td>${booking.name}</td>
+            <td>${booking.email}</td>
+            <td>${booking.checkInDate}</td>
+            <td>${booking.checkOutDate}</td>
+            <td>${booking.status}</td>
+            <td>
+                <button class="btn btn-info btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </td>
+        `;
+
+        bookingTableBody.appendChild(row);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+ // Booking CRUD operations
+ const addBooking = async () => {
+     const formData = {
+         firstName: document.getElementById('addFirstName').value,
+         lastName: document.getElementById('addLastName').value,
+         email: document.getElementById('addEmail').value,
+         phone: document.getElementById('addPhone').value,
+         checkInDate: document.getElementById('addCheckInDate').value,
+         checkOutDate: document.getElementById('addCheckOutDate').value,
+         bookingType: document.getElementById('addBookingType').value,
+         arrival: document.getElementById('addArrival').value,
+         country: document.getElementById('addCountry').value,
+         city: document.getElementById('addCity').value,
+         address: document.getElementById('addAddress').value,
+         totalPrice: parseFloat(document.getElementById('addTotalPrice').value),
+         status: 'Pending'
+     };
+
+     try {
+         const response = await fetch(API_BASE_URL, {
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json',
+             },
+             body: JSON.stringify(formData)
+         });
+
+         if (!response.ok) throw new Error('Failed to create booking');
+
+         const newBooking = await response.json();
+         bookings.push(newBooking);
+         renderBookings();
+
+         const modal = bootstrap.Modal.getInstance(document.getElementById('addBookingModal'));
+         modal.hide();
+         document.getElementById('addBookingForm').reset();
+
+         showAlert('Booking created successfully');
+     } catch (error) {
+         showAlert(error.message, 'danger');
+     }
+ };
+
+ const openEditModal = async (bookingId) => {
+     try {
+         const response = await fetch(`${API_BASE_URL}/${bookingId}`);
+         if (!response.ok) throw new Error('Failed to fetch booking details');
+
+         const booking = await response.json();
+
+         document.getElementById('bookingId').value = booking.id;
+         document.getElementById('firstName').value = booking.firstName;
+         document.getElementById('lastName').value = booking.lastName;
+         document.getElementById('email').value = booking.email;
+         document.getElementById('phone').value = booking.phone;
+         document.getElementById('checkInDate').value = booking.checkInDate;
+         document.getElementById('checkOutDate').value = booking.checkOutDate;
+         document.getElementById('bookingType').value = booking.bookingType;
+         document.getElementById('arrival').value = booking.arrival;
+         document.getElementById('country').value = booking.country;
+         document.getElementById('city').value = booking.city;
+         document.getElementById('address').value = booking.address;
+         document.getElementById('status').value = booking.status;
+         document.getElementById('totalPrice').value = booking.totalPrice;
+
+         const modal = new bootstrap.Modal(document.getElementById('bookingModal'));
+         modal.show();
+     } catch (error) {
+         showAlert(error.message, 'danger');
+     }
+ };
+
+ const saveBooking = async () => {
+     const bookingId = document.getElementById('bookingId').value;
+     const formData = {
+         id: bookingId,
+         firstName: document.getElementById('firstName').value,
+         lastName: document.getElementById('lastName').value,
+         email: document.getElementById('email').value,
+         phone: document.getElementById('phone').value,
+         checkInDate: document.getElementById('checkInDate').value,
+         checkOutDate: document.getElementById('checkOutDate').value,
+         bookingType: document.getElementById('bookingType').value,
+         arrival: document.getElementById('arrival').value,
+         country: document.getElementById('country').value,
+         city: document.getElementById('city').value,
+         address: document.getElementById('address').value,
+         status: document.getElementById('status').value,
+         totalPrice: parseFloat(document.getElementById('totalPrice').value)
+     };
+
+     try {
+         const response = await fetch(`${API_BASE_URL}/${bookingId}`, {
+             method: 'PUT',
+             headers: {
+                 'Content-Type': 'application/json',
+             },
+             body: JSON.stringify(formData)
+         });
+
+         if (!response.ok) throw new Error('Failed to update booking');
+
+         const updatedBooking = await response.json();
+         const index = bookings.findIndex(b => b.id === updatedBooking.id);
+         if (index !== -1) {
+             bookings[index] = updatedBooking;
+         }
+         renderBookings();
+
+         const modal = bootstrap.Modal.getInstance(document.getElementById('bookingModal'));
+         modal.hide();
+
+         showAlert('Booking updated successfully');
+     } catch (error) {
+         showAlert(error.message, 'danger');
+     }
+ };
+
+ const deleteBooking = async (bookingId) => {
+     if (!confirm('Are you sure you want to delete this booking?')) return;
+
+     try {
+         const response = await fetch(`${API_BASE_URL}/${bookingId}`, {
+             method: 'DELETE'
+         });
+
+         if (!response.ok) throw new Error('Failed to delete booking');
+
+         bookings = bookings.filter(booking => booking.id !== bookingId);
+         renderBookings();
+         showAlert('Booking deleted successfully');
+     } catch (error) {
+         showAlert(error.message, 'danger');
+     }
+ };
+
+ // Event Listeners
+ document.addEventListener('DOMContentLoaded', () => {
+     fetchBookings();
+
+     // Add input event listeners for real-time filtering
+     const filterInputs = document.querySelectorAll('.filter-panel input, .filter-panel select');
+     filterInputs.forEach(input => {
+         input.addEventListener('input', () => {
+             clearTimeout(input.debounceTimer);
+             input.debounceTimer = setTimeout(() => {
+                 applyFilters();
+             }, 500);
+         });
+     });
+ });
+</script>
+</body>
+</html>

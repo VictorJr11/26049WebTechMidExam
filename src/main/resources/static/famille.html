@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Madeleine Garden</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+
+<!-- CSS for Profile Section -->
+<style>
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.family-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.section {
+    margin-bottom: 50px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.section.visible {
+    opacity: 1;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.content {
+    flex: 1;
+    padding: 1rem;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s, transform 1s;
+}
+
+.content.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #4CAF50;
+}
+
+.card-text, .hidden-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: #4CAF50;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.hidden-content {
+    display: none;
+}
+
+.image-slider {
+    flex: 1;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 1s, transform 1s;
+}
+
+.image-slider.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.image-slider img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.image-slider img.active {
+    opacity: 1;
+}
+
+.babi .content-wrapper {
+    flex-direction: row-reverse;
+}
+
+.babi .content {
+    transform: translateX(50px);
+}
+
+.babi .image-slider {
+    transform: translateX(-50px);
+}
+
+
+
+
+
+
+
+
+
+
+.read-more {
+    color: #4CAF50;
+    cursor: pointer;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
+}
+.hidden-content {
+    display: none;
+    margin-top: 1rem;
+}
+
+
+
+
+.contact-item a {
+  color: white;
+}
+
+.section-subtitle {
+  color: green;
+}
+
+
+</style>
+
+
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+
+        <a href="tel:+01123456790" class="helpline-box">
+
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+
+          <div class="wrapper">
+            <p class="helpline-title">Madeleine Garden :</p>
+
+            <p class="helpline-number">+250 781 333 778</p>
+          </div>
+
+        </a>
+
+        <a href="#" class="logo">
+          <!--<img src="imagesMg/logo/mg1.png" alt="Tourly logo">-->
+        </a>
+
+        <div class="header-btn-group">
+
+          <button class="search-btn" aria-label="Search">
+            <ion-icon name="search"></ion-icon>
+          </button>
+
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="./assets/images/logo-blue.svg" alt="Tourly logo">
+            </a>
+
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <ul class="navbar-list">
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+            </li>
+
+            <li>
+              <a href="#about" class="navbar-link" data-nav-link>About us</a>  
+            </li>
+
+            <li>
+              <a href="index.html#Events" class="navbar-link" data-nav-link>Events</a>
+            </li>
+
+            <li>
+              <a href="index.html#services" class="navbar-link" data-nav-link>Services</a>
+            </li>
+
+
+            <li>
+              <a href="index.html#madeleine-safari" class="navbar-link" data-nav-link>Family</a>
+            </li>
+
+            <li>
+              <a href="#gallery" class="navbar-link" data-nav-link>Gallery</a>
+            </li>
+
+            <li>
+              <a href="#contact" class="navbar-link" data-nav-link>Contact us</a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+        <button class="btn btn-primary">Book Now</button>
+
+      </div>
+    </div>
+
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="container">
+          <h2 class="h1 hero-title">UNEN'S FAMILY</h2>
+      
+          <p class="hero-text">
+            Family is the first place where we learn love and solidarity.Together, we overcome challenges and celebrate every success with a smile. 
+            Family harmony is a treasure, a refuge that protects us and inspires us to build a bright future.
+          </p>
+      
+          <div class="btn-group">
+            <button class="btn btn-primary" onclick="scrollToFamilySection()">Learn more</button>
+            <button class="btn btn-secondary">Book now</button>
+          </div>
+      
+        </div>
+      </section>
+      
+
+
+
+
+
+      <!-- 
+        - #TOUR SEARCH
+      -->
+
+      <section class="tour-search">
+        <div class="container">
+
+          <form action="" class="tour-search-form">
+
+            <div class="input-wrapper">
+              <label for="destination" class="input-label">Search Destination*</label>
+
+              <input type="text" name="destination" id="destination" required placeholder="Enter Destination"
+                class="input-field">
+            </div>
+
+            <div class="input-wrapper">
+              <label for="people" class="input-label">Pax Number*</label>
+
+              <input type="number" name="people" id="people" required placeholder="No.of People" class="input-field">
+            </div>
+
+            <div class="input-wrapper">
+              <label for="checkin" class="input-label">Checkin Date**</label>
+
+              <input type="date" name="checkin" id="checkin" required class="input-field">
+            </div>
+
+            <div class="input-wrapper">
+              <label for="checkout" class="input-label">Checkout Date*</label>
+
+              <input type="date" name="checkout" id="checkout" required class="input-field">
+            </div>
+
+            <button type="submit" class="btn btn-secondary">Inquire now</button>
+
+          </form>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #POPULAR
+      -->
+
+
+
+
+      
+
+      <section class="popular" id="about">
+        <div class="container">
+
+          <p class="section-subtitle">Discover the Legacy</p>
+
+          <h2 class="h2 section-title">A Place of Unity and Celebration</h2>
+
+          <p class="section-text">
+            "Family is not just an important thing, it’s everything." At UNEN's Family, we believe that every memory created
+            here is a reflection of love, unity, and strength. This space is not just a destination but a testament to the
+            values and spirit that Madeleine and her family have shared with all. Like the strong roots of a tree, family
+            binds us, supports us, and keeps us grounded. Each celebration held here is a tribute to the enduring legacy of
+            connection and joy.
+          </p>
+
+          <ul class="popular-list">
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-img">
+                  <img src="./assets/images/f21.jpeg" alt="San miguel, italy" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="#">DABI</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Binen Gladys</a>
+                  </h3>
+
+                  <p class="card-text">
+                    She was the kind of person
+                    who makes everyone around her better, simply by being herself.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-img">
+                  <img src="./assets/images/p1.png" alt="Burj khalifa, dubai" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="#">BABI</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Dieudonne Unencan</a>
+                  </h3>
+
+                  <p class="card-text">
+                    His humility inspires respect and admiration, 
+  and his quiet leadership is an example to all who meet him.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-img">
+                  <img src="./assets/images/m1.png" alt="Kyoto temple, japan" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="#">MABI</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="#">Madeleine Safari</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Her greatest satisfaction came from the help she gave to those around her, 
+  turning every interaction into an act of kindness.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <div class="btn-group">
+            <a href="index.html#mad">
+              <button class="btn btn-primary">Learn More</button>
+            </a>
+          </div>
+          
+
+        </div>
+      </section>
+
+
+
+
+
+
+
+      <div class="family-section" id="fam">
+        <div class="section dabi" id="binen">
+            <div class="content-wrapper">
+                <div class="content">
+                    <h3 class="card-title">Binen Gladys</h3>
+                    <p class="card-text">
+                        "Binen Gladys shines not only with her intelligence, but with a heart full of compassion. She is the kind of person
+                        who makes everyone around her better, simply by being herself. Her presence is a gift, and her kindness a rare treasure."
+                    </p>
+                    <p class="read-more">Read more</p>
+                    <div class="hidden-content">
+                        <p>Born on July 11th, 2000, Binen Gladys was Madeleine's eldest daughter and a beacon of responsibility, passion, and dedication. Deeply connected to her mother, she shared in every one of Madeleine's dreams and supported them with an unmatched devotion. Completing her studies at Mount Kenya University in 2022, she was not only an enthusiastic student but also a responsible woman who approached every endeavor with seriousness and care.</p>
+                        <p>Married and known for her incomparable character, she was a cornerstone in the foundation of Madeleine Garden. Tragically, she passed away on February 11th, 2024, in the same accident as her beloved mother. Yet, her spirit of determination and love continues to inspire the legacy of Madeleine Garden. Every detail of this venue echoes her heart, as her devotion and character have left a lasting imprint.</p>
+                    </div>
+                </div>
+                <div class="image-slider">
+                    <img src="imagesMg/Family/f22.jpeg" alt="DABI 1" class="active">
+                    <img src="imagesMg/Family/f8.jpeg" alt="DABI 2">
+                    <img src="imagesMg/Family/f20.jpeg" alt="DABI 3">
+                    <img src="imagesMg/Family/f9.jpeg" alt="DABI 4">
+                    <img src="imagesMg/Family/f21.jpeg" alt="DABI 5">
+                </div>
+            </div>
+        </div>
+
+        <div class="section babi" id="Dieudonne">
+            <div class="content-wrapper">
+                <div class="content">
+                    <h3 class="card-title">Dieudonne Unencan</h3>
+                    <p class="card-text">
+                        "Dieudonne Unencan embodies humility in its purest form. Despite his many successes, he always remains
+                        accessible and attentive, preferring to let his actions speak for him. His humility inspires respect and admiration,
+                        and his quiet leadership is an example for all who meet him."
+                    </p>
+                    <p class="read-more">Read more</p>
+                    <div class="hidden-content">
+                        <p>Madeleine's husband, Dieudonne Unencan, is a man of great wisdom and intelligence, admired by all who know him. For over 20 years, he has been a dedicated mathematics teacher at the Lycée de Kigali (LDK), where his deep knowledge and thoughtful approach to teaching have left a lasting impact on his students. Married to Madeleine since 1999, he has always been a responsible and caring father, committed to his family and their well-being.</p>
+                        <p>A man of calm philosophy and steady wisdom, he tragically lost both his beloved wife and daughter in a devastating accident. Despite this unimaginable loss, he remains a pillar of strength for his family. His ability to process the tragedy with grace and reflect deeply on life's challenges has earned him the respect and admiration of many.</p>
+                        <p>As a loving father, he continues to guide and nurture his remaining children with the same care and thoughtfulness that have always defined him. Now, as the chief and responsible figure for Madeleine Garden, he plays a crucial role in continuing the legacy that Madeleine began. His leadership, wisdom, and dedication ensure that the values and vision Madeleine instilled in the garden live on.</p>
+                        <p>His presence and contributions help preserve the spirit of Madeleine in every aspect of Madeleine Garden, making it not just a place of celebration, but also a tribute to the family's enduring strength, love, and unity.</p>
+                    </div>
+                </div>
+                <div class="image-slider">
+                    <img src="imagesMg/Family/s30.jpeg" alt="BABI 1" class="active">
+                    <img src="imagesMg/Family/f6.jpeg" alt="BABI 2">
+                    <img src="imagesMg/Family/s34.jpeg" alt="BABI 3">
+                    <img src="./assets/images/f4.jpeg" alt="BABI 4">
+                    <img src="imagesMg/Family/s29.jpeg" alt="BABI 5">
+                </div>
+            </div>
+        </div>
+
+        <div class="section mabi" id="Safari">
+            <div class="content-wrapper">
+                <div class="content">
+                    <h3 class="card-title">Madeleine Safari</h3>
+                    <p class="card-text">
+                        "Madeleine Safari was the embodiment of unconditional love. Always ready to put the needs of others before her own,
+                        she lived with a heart overflowing with generosity. Her greatest satisfaction came from helping those around her,
+                        turning each interaction into an act of kindness. She was a true pillar of support for her family and community."
+                    </p>
+                    <p class="read-more">Read more</p>
+                    <div class="hidden-content">
+                        <p>"The love Madeleine shared was a beacon of hope, illuminating the lives of all who knew her. Her legacy lives on in the hearts she touched and the lives she changed."</p>
+                        <p>Madeleine Safari's life was a testament to the power of love and generosity. Her unwavering commitment to her family and community left an indelible mark on all who knew her. Though she is no longer with us, her spirit continues to inspire and guide through the Madeleine Garden, a living embodiment of her values and vision.</p>
+                    </div>
+                </div>
+                <div class="image-slider">
+                    <img src="imagesMg/Family/f11.jpeg" alt="MABI 1" class="active">
+                    <img src="imagesMg/Family/f5.jpeg" alt="MABI 2">
+                    <img src="imagesMg/Family/f19.jpeg" alt="MABI 3">
+                    <img src="imagesMg/Family/f18.jpeg" alt="MABI 4">
+                    <img src="imagesMg/Family/f6.jpeg" alt="MABI 5">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+// Animation of sections on scroll
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            const content = entry.target.querySelector('.content');
+            const imageSlider = entry.target.querySelector('.image-slider');
+            content.classList.add('visible');
+            imageSlider.classList.add('visible');
+        } else {
+            entry.target.classList.remove('visible');
+            const content = entry.target.querySelector('.content');
+            const imageSlider = entry.target.querySelector('.image-slider');
+            content.classList.remove('visible');
+            imageSlider.classList.remove('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+sections.forEach(section => {
+    observer.observe(section);
+});
+
+// Image rotation
+const sliders = document.querySelectorAll('.image-slider');
+sliders.forEach(slider => {
+    const images = slider.querySelectorAll('img');
+    let currentIndex = 0;
+
+    setInterval(() => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }, 9000); // Change image every 5 seconds
+});
+
+// Read more functionality
+const readMoreButtons = document.querySelectorAll('.read-more');
+readMoreButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.closest('.content');
+        const hiddenContent = content.querySelector('.hidden-content');
+        const cardText = content.querySelector('.card-text');
+        
+        if (hiddenContent.style.display === 'none' || hiddenContent.style.display === '') {
+            hiddenContent.style.display = 'block';
+            cardText.style.display = 'none';
+            button.textContent = 'Read less';
+        } else {
+            hiddenContent.style.display = 'none';
+            cardText.style.display = 'block';
+            button.textContent = 'Read more';
+        }
+        
+        // Move the button to the end of the visible content
+        if (hiddenContent.style.display === 'block') {
+            hiddenContent.appendChild(button);
+        } else {
+            content.insertBefore(button, hiddenContent);
+        }
+    });
+});
+  </script>
+
+
+
+
+
+
+
+
+
+      <!-- 
+        - #GALLERY
+      -->
+
+
+
+
+
+
+ <section class="gallery" id="gallery">
+        <div class="container">
+            <p class="section-subtitle">Photo Gallery</p>
+            <h2 class="section-title">Memories from Families</h2>
+            <p class="section-text">
+              Cherish the moments spent with loved ones at Madeleine Garden. Whether it's a family reunion, a birthday celebration, or a casual gathering, our venue creates the perfect setting for unforgettable family memories.
+            </p>
+            <ul class="gallery-list">
+                <li class="gallery-item">
+                    <figure class="gallery-image">
+                        <img src="./assets/images/f9.jpeg" alt="Gallery image">
+                    </figure>
+                </li>
+                <li class="gallery-item">
+                    <figure class="gallery-image">
+                        <img src="./assets/images/r1.png" alt="Gallery image">
+                    </figure>
+                </li>
+                <li class="gallery-item">
+                    <figure class="gallery-image">
+                        <img src="imagesMg/Staff/s13.jpeg" alt="Gallery image">
+                    </figure>
+                </li>
+                <li class="gallery-item">
+                    <figure class="gallery-image">
+                        <img src="./assets/images/f6.jpeg" alt="Gallery image">
+                    </figure>
+                </li>
+                <li class="gallery-item">
+                    <figure class="gallery-image">
+                        <img src="imagesMg/Family/e28.jpeg" alt="Gallery image">
+                    </figure>
+                </li>
+                <li class="gallery-item">
+                    <figure class="gallery-image">
+                        <img src="./assets/images/r2.png" alt="Gallery image">
+                    </figure>
+                </li>
+                <li class="gallery-item">
+                    <figure class="gallery-image">
+                        <img src="imagesMg/Family/e28.jpeg" alt="Gallery image">
+                    </figure>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+
+
+<!-- #CTA -->
+<section class="cta" id="contact">
+  <div class="container">
+
+    <div class="cta-content">
+      <p class="section-subtitle">Call To Action</p>
+
+      <h2 class="h2 section-title">Ready for a Beautiful Event? Madeleine Garden Awaits!</h2>
+
+      <p class="section-text">
+        Whether it's a wedding, a corporate event, or a special gathering, Madeleine Garden offers the perfect backdrop for unforgettable moments. Nestled in the heart of nature, our venue combines elegance and tranquility.
+      </p>
+    </div>
+
+    <button class="btn btn-secondary">Contact Us Now!</button>
+
+  </div>
+</section>
+
+
+
+
+
+
+<!-- #FOOTER -->
+<footer class="footer">
+
+  <div class="footer-top">
+    <div class="container">
+
+      <div class="footer-brand">
+
+        <a href="#" class="logo">
+          <img src="imagesMg/logo/mg1.png" alt="Madeleine Garden logo">
+        </a>
+
+        <p class="footer-text">
+          Madeleine Garden is a beautiful venue for events and relaxation, offering a perfect blend of nature and luxury for your special occasions.
+        </p>
+
+      </div>
+
+      <div class="footer-contact">
+
+        <h4 class="contact-title">Contact Us</h4>
+
+        <p class="contact-text">
+          Feel free to contact and reach us anytime!
+        </p>
+
+        <ul>
+
+          <li class="contact-item">
+            <ion-icon name="call-outline"></ion-icon>
+            <a href="https://wa.me/250788663798" target="_blank" class="contact-link">+250 788 663 798</a>
+          </li>
+
+          <li class="contact-item">
+            <ion-icon name="call-outline"></ion-icon>
+            <a href="https://wa.me/250781333778" target="_blank" class="contact-link">+250 781 333 778</a>
+          </li>
+
+          <li class="contact-item">
+            <ion-icon name="call-outline"></ion-icon>
+            <a href="https://wa.me/250788544509" target="_blank" class="contact-link">+250 788 544 509</a>
+          </li>
+
+          <li class="contact-item">
+            <ion-icon name="mail-outline"></ion-icon>
+            <a href="mailto:info@madeleinegarden.com" class="contact-link">info@madeleinegarden.com</a>
+          </li>
+
+          <li class="contact-item">
+            <ion-icon name="location-outline"></ion-icon>
+            <address><a href="https://maps.app.goo.gl/uUxcU7iBMMk8aPPe9?g_st=com.google.maps.preview.copy" target="_blank">Madeleine Garden, Kinyinya, near the Bus park of Kinyinya, KG 382 st</a></address>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="footer-form">
+
+        <p class="form-text">
+          Subscribe to our newsletter for more updates & news!
+        </p>
+
+        <form action="" class="form-wrapper">
+          <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
+          <button type="submit" class="btn btn-secondary">Subscribe</button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+
+      <p class="copyright">
+        &copy; 2024 Madeleine Garden. All rights reserved. | Design by Jocos
+      </p>
+
+      <ul class="footer-bottom-list">
+
+        <li>
+          <a href="#" class="footer-bottom-link">Privacy Policy</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-bottom-link">Terms & Conditions</a>
+        </li>
+
+        <li>
+          <a href="#" class="footer-bottom-link">FAQ</a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+
+</footer>
+
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+
+<script>
+
+
+
+function scrollToFamilySection() {
+  document.getElementById('fam').scrollIntoView({
+    behavior: 'smooth'
+  });
+}
+
+
+</script>
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
